@@ -1,0 +1,84 @@
+// FONTS:
+$title-font-family: Dosis,"Helvetica Neue",Helvetica,Arial,freesans,clean,sans-serif;
+$header-font-family: Dosis,"Helvetica Neue",Helvetica,Arial,freesans,clean,sans-serif;
+$body-font-family: Alegreya,"Helvetica Neue",Helvetica,Arial,Freesans,Clean,sans-serif;
+$code-font-family: "Ubuntu Mono",Consolas,"Liberation Mono",Courier,monospace;
+
+// COLOR SCHEME:
+$body-background-color: #EDF2F3;
+$content-border-color: #E1E7E8;
+$hero-background-color: #0A3E66;
+$hero-text-color: #FFFFFF;
+$nite-text-color: #FFFFFF;
+$lite-text-color: #FFFFFF;
+$tpk-text-color: #FFFFFF;
+$navbar-background-color: #0C4875;
+$navbar-text-color: #FFFFFF;
+$navbar-active-color: #0E568A;
+$header-text-color: #384E63;
+$body-text-color: #52606F;
+$link-text-color: #3295D6;
+$content-background-color: #FFFFFF;
+$sidebar-background-color: #F6F9F9;
+$journal-box-1-color: #51CF87;
+$journal-box-2-color: #D5CB2C;
+$journal-box-3-color: #F4D353;
+$popular-box-color: #c74438;
+$rating-box-color: #8d50a3;
+$skill-box-color: $navbar-active-color;
+$footer-background-color: #373737;
+$footer-text-color: #AAAAAA;
+$footer-link-color: #DDDDDD;
+$comments-odd-border-color: #EDF2F3;
+$comments-odd-background-color: #FFFFFF;
+$comments-odd-separator-color: #EDF2F3;
+$secondary-submit-button-color: #A9B7B7;
+$menu-icon-toggled-color: #083659;
+$social-badge-0-color: $footer-background-color;
+$social-badge-1-color: #3193D5;
+$social-badge-2-color: #277BB3;
+$social-badge-3-color: #BB372B;
+
+$search-button-background-color: $hero-background-color;
+$primary-submit-button-color: $hero-background-color;
+$comments-even-border-color: $sidebar-background-color;
+$comments-even-background-color: $sidebar-background-color;
+$comments-even-separator-color: $content-border-color;
+$comments-form-border-color: $content-border-color;
+$comments-form-background-color: $sidebar-background-color;
+$tag-title-color: $secondary-submit-button-color;
+
+// HIGHLIGHTS
+$code-border: 0 none;
+$comment-color: #8e908c;
+$variable-color: #c82829;
+$number-color: #f5871f;
+$class-color: #eab700;
+$string-color: #718c00;
+$hex-color: #3e999f;
+$function-color: #4271ae;
+$keyword-color: #8959a8;
+//$code-background-color: #FFFFFF;
+$code-background-color: $sidebar-background-color;
+//$code-default-text-color: #4d4d4c;
+$code-default-text-color: $body-text-color;
+
+//$dream-d-color: #000080;
+//$dream-hh-color: #800080;
+//$dream-ld-color: #0000FF;
+//$dream-fa-color: #8B0000;
+//$dream-nd-color: #696969;
+
+$dream-d-color: $body-text-color;
+$dream-hh-color: $rating-box-color;
+$dream-ld-color: $social-badge-1-color;
+$dream-fa-color: $social-badge-3-color;
+$dream-nd-color: $secondary-submit-button-color;
+
+$pickup-out-color: $dream-d-color;
+$pickup-in-color: $dream-ld-color;
+$pickup-sa-color: $dream-nd-color;
+$pickup-cl-color: $dream-fa-color;
+
+$inlineColor: #333333;
+

@@ -1,0 +1,1252 @@
+/**
+ * Blog styles.
+ *
+ * A lot of this and other custom sass files override many of foundation's
+ * default styles. However, foundation is still necessary to work properly.
+ * Foundation overrides will be marked with [F].
+ */
+
+/* Body and structure [F]
+-------------------------------------------------- */
+
+body {
+  font-family: $body-font-family;
+  font-size: 1rem;
+	color: $body-text-color;
+  line-height: 1.6;
+  background-color: $body-background-color;
+  background-image: url(../img/bg-skulls.png);
+}
+
+p {
+  font-size: 1rem;
+  display: block;
+  margin-top: 1.0rem;
+  margin-bottom: 1.0rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-font-family;
+	font-weight:bold;
+	margin:1em 0 1rem;
+  line-height: 1.6rem;
+  color: $header-text-color;
+}
+
+h1 {
+	font-size: 28px;
+  line-height: 28px;
+}
+
+h2 {
+	font-size: 24px;
+  line-height: 24px;
+}
+
+h3 {
+	font-size: 18px;
+  line-height: 18px;
+}
+
+h4 {
+	font-size: 14px;
+  line-height: 14px;
+}
+
+h5 {
+	color: #333;
+	font-size: 14px;
+  line-height: 14px;
+}
+
+h6 {
+	color: #777;
+	font-size: 14px;
+  line-height: 14px;
+}
+
+hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid $body-background-color;
+  border-bottom: 1px solid white;
+}
+
+blockquote {
+  margin:1.0rem;
+  background: $sidebar-background-color;
+  border-left:4px solid $body-background-color;
+  color: $body-text-color;
+  font-family: $body-font-family;
+  padding: 11px;
+}
+
+// same as p (bootstrap override).
+blockquote p {
+  @extend p;
+  color: $body-text-color;
+  font-family: $body-font-family;
+}
+
+.even blockquote {
+  background: $body-background-color;
+  border-left:4px solid $content-border-color;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+a:hover
+{
+	color: rgb(17,68,119);
+	text-decoration: underline;
+}
+
+a.title-link
+{	
+  color: $header-text-color !important;
+	text-decoration: none;
+}
+
+img, iframe
+{ 
+  border: 0;
+}
+
+img.rating-icon {
+  display: inline-block;
+}
+
+article > :first-child {
+  margin-top: 0!important;
+}
+
+table
+{
+  font-size: 14px;
+	border-collapse:collapse;
+	margin:20px 0 0;
+	padding:0;
+}
+
+table tr
+{
+	border-top:1px solid #ccc;
+	background-color:#fff;
+	margin:0;
+	padding:0;
+}
+
+table tr:nth-child(2n)
+{
+	background-color:#f8f8f8;
+}
+
+table tr th[align="center"], table tr td[align="center"] {
+	text-align:center;
+}
+
+table tr th, table tr td
+{
+	border:1px solid #ccc;
+	margin:0;
+	padding:6px 13px;
+}
+
+.md {
+	background-color: #eee;
+  margin: 0;
+	padding:3px;
+}
+
+.footnotes {
+  background: #f8f8f8;
+  font-size: 12px;
+  margin: 48px 0 0 0;
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-style: dashed;
+}
+
+#hero-unit {
+  position: relative;
+  padding: 60px 20px;
+  background: url("/img/starscape.svg") repeat scroll 0 0 $hero-background-color;
+  overflow: hidden;
+  height: 184px;
+}
+
+// Text's parent div's line heights must match text size.
+#hero-unit h1, #hero-unit h1 a {
+  font-family: $title-font-family;
+  font-size: 48px;
+  color: $hero-text-color;
+  margin: 0;
+  text-align: left;
+  line-height: 60px;
+  height: 60px;
+}
+
+#hero-unit h1 a:hover {
+  text-decoration: none;
+}
+
+.muted {
+  color: #aaa;
+}
+
+.logo-container {
+  // This is needed for proper vertical alignment if a logo is used next to
+  // text
+  // height: 120px;
+}
+
+.logo {
+  height: 100%;
+  width: 120px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 20px;
+}
+
+.logo-text, .logo-text h1, .logo-text h1 a {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  //line-height: 120px;
+}
+
+.nite {
+  color: $nite-text-color;
+  font-weight: normal;
+}
+
+.lite {
+  color: $lite-text-color;
+  font-weight: bold;
+}
+
+.tpk {
+  color: $tpk-text-color;
+  font-weight: bold;
+  font-size: 64px;
+}
+
+.contain-to-grid {
+  background: none repeat scroll 0 0;
+  background-color: $hero-background-color;
+}
+
+.main-container {
+  background-color: $sidebar-background-color;
+}
+
+.content-container {
+  background-color: $content-background-color;
+  padding: 0;
+}
+
+.sidebar-container {
+  padding: 0;
+}
+
+#nl-content {
+  padding: 1.25rem 0.75rem;
+}
+
+#nl-sidebar {
+  padding-top: 1.25rem;
+  font-family: $header-font-family;
+}
+
+/* Custom styles.
+-------------------------------------------------- */
+
+/* Header
+-------------------------------------------------- */
+
+.navbar-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+// Header description.
+.description
+{
+	color: #696969;
+}
+
+
+/* Body
+-------------------------------------------------- */
+
+// Blog post wrapper.
+.blog {
+  @include clearfix;
+}
+
+.blogheader {
+}
+
+.blogfooter {
+}
+
+h2.title
+{
+  margin: 0;
+	font-size: 1.75rem;
+  line-height: 1.75rem;
+  text-decoration: underline;
+}
+
+.index-nav-left {
+  float: left;
+  line-height: 1.125rem;
+}
+
+.index-nav-right {
+  float: right;
+  line-height: 1.125rem;
+}
+
+.index-title-top {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $comments-odd-border-color;
+  color: $tag-title-color;
+  font-family: $header-font-family;
+  font-weight: bold;
+}
+
+.index-title-bottom {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid $comments-odd-border-color;
+  color: $tag-title-color;
+  font-family: $header-font-family;
+  font-weight: bold;
+}
+
+.index-title-top a,
+.index-title-bottom a {
+  font-weight: bold;
+}
+
+.index-title-top a:hover,
+.index-title-bottom a:hover {
+  text-decoration: none;
+}
+
+.index-title-top h2,
+.index-title-bottom h2 {
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  font-weight: normal;
+  color: $tag-title-color;
+  float: center;
+  padding: 0;
+  margin: 0;
+}
+
+.article {
+  margin-bottom: 2.0rem;
+}
+
+// prevents title from forcing post meta to overflow
+.article-title {
+  max-width: 500px;
+  float: left;
+}
+
+.article-meta {
+  float: right;
+  padding-top: 0.0rem;
+}
+
+.article-date,
+.rating-wrapper-content {
+  text-align: right;
+}
+
+.article.index {
+  border-bottom: 1px solid $sidebar-background-color;
+}
+
+.article-date
+{
+  margin: 0 0 0 0;
+	font-weight: normal;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  text-align: right;
+  color: $header-text-color;
+  font-family: $header-font-family;
+  padding-bottom: 0.125rem;
+}
+
+h3.category {
+  margin: 0;
+	font-weight: normal;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: right;
+}
+
+h3.legend {
+  margin: 0;
+	font-weight: normal;
+  font-size: 0.875rem;
+}
+
+.metadata {
+  font-family: $header-font-family;
+}
+
+.more-link {
+  @extend .metadata;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.more-link.index {
+  margin-bottom: 2rem;
+}
+
+.related-posts {
+  font-weight:bold;
+}
+
+/* Sidebar
+-------------------------------------------------- */
+
+.side {
+  margin-bottom: 0.563rem;
+}
+
+.side h3 {
+  font-size: 1.313rem;
+  line-height: 1.313rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+.side .about-me h3 {
+  margin: 0 0 1rem;
+}
+
+.side .about-me {
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.side .about-description {
+  padding-right: 0.5rem;
+}
+
+.profile {
+  margin: 0 1.25rem 0 0;
+  width: 100px;
+  height: 100px;
+  float: left
+}
+
+.social-links {
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  text-align: center;
+}
+
+.social-links .youtube {
+  height: 3.375rem;
+  background: $social-badge-0-color;
+  float: left;
+  color: $hero-text-color;
+  padding: 1.15rem 0 1.0rem;
+}
+
+.social-links .twitter {
+  height: 3.375rem;
+  background: $social-badge-1-color;
+  float: left;
+  color: $hero-text-color;
+  padding: 1.15rem 0 1.0rem;
+}
+
+.social-links .facebook {
+  height: 3.375rem;
+  background: $social-badge-2-color;
+  float: left;
+  color: $hero-text-color;
+  padding: 1.15rem 0 1.0rem;
+}
+
+.social-links .google {
+  height: 3.375rem;
+  background: $social-badge-3-color;
+  float: left;
+  color: $hero-text-color;
+  padding: 1.15rem 0 1.0rem;
+}
+
+.social-icon {
+  border: 0;
+  padding-right: 0.25rem;
+}
+
+img.social-icon {
+  border: 0;
+  padding-right: 0.25rem;
+  width: auto;
+}
+
+.social-text {
+  line-height: 0.875rem;
+  vertical-align: middle;
+}
+
+.nl-label {
+  width: auto;
+  height: 2.875rem;
+  padding: 1rem;
+}
+
+.ratings-label {
+  background: $rating-box-color;
+  //margin-bottom: 0.25rem;
+}
+
+.skills-label {
+  background: $skill-box-color;
+  //margin-bottom: 0.25rem;
+}
+
+.skills-item-label {
+  text-align: right;
+}
+
+.popular-label {
+  background: $popular-box-color;
+  //margin-bottom: 0.25rem;
+}
+
+.popular-item-label {
+  text-align: right;
+}
+
+h3.side-label {
+  color: $hero-text-color;
+}
+
+.side .ratings {
+  background: $rating-box-color;
+  padding-bottom: 1.25rem;
+  color: $hero-text-color;
+}
+
+.side .skills {
+  background: $skill-box-color;
+  padding-bottom: 1.25rem;
+  color: $hero-text-color;
+}
+
+.side .skills a {
+  color: $hero-text-color;
+}
+
+.side .most-popular {
+  background: $popular-box-color;
+  padding-bottom: 1.25rem;
+  color: $hero-text-color;
+}
+
+.side .most-popular a {
+  color: $hero-text-color;
+}
+
+.side .rating-icon {
+  padding-right: 0.25rem;
+  display: inline-block;
+}
+
+.rating-wrapper {
+  text-align: center;
+  padding: 0.25rem 0;
+}
+
+.rating-wrapper-content {
+  line-height: 0.75rem;
+  text-align: right;
+  margin: 0 0 0 0;
+	font-weight: normal;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  text-align: right;
+  color: $header-text-color;
+  font-family: $header-font-family;
+  //padding-bottom: 0.125rem;
+}
+
+.rating-wrapper-content .rating-icon {
+  width: 0.75rem;
+  padding-left: 0.0125rem;
+}
+
+.skill-wrapper-content,
+.skill-wrapper-content a,
+.skill-wrapper-content a:hover {
+  //color: $header-text-color;
+  color: $secondary-submit-button-color;
+  line-height: 1.5rem;
+  text-align: right;
+  font-family: $header-font-family;
+  margin: 0 0 0 0;
+	font-weight: normal;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  text-decoration: none;
+}
+
+.skill-key-content {
+  font-family: $header-font-family;
+  //margin: 0 0 0 0;
+	font-weight: normal;
+  font-size: 0.75rem;
+  padding-bottom: 0rem;
+  // The negative is to compensate for the extra padding that titles add in case
+  // a key is not used for the post.
+  margin: 0rem 0 0 0;
+}
+
+ul.nl-label-list {
+  text-align: right;
+  list-style-type:none;
+  margin: 0;
+}
+
+.content-meta {
+  @include clearfix;
+}
+
+.content-meta {
+  margin: 0.0em 0;
+  padding-bottom: 0rem;
+}
+
+.footer-nav, .side {
+  @include clearfix;
+}
+
+.footer-nav {
+  margin: 2.0em 0;
+}
+
+kbd {
+  white-space: nowrap;
+  color: black;
+  background: #EEE;
+  border-style: solid;
+  border-color: #CCC #AAA #888 #BBB;
+  padding: 2px 6px;
+  background-color: #FAFAFA;
+  border-color: #CCC #CCC white;
+  border-style: solid solid none;
+  border-width: 1px 1px medium;
+  color: #555;
+  font-family: $body-font-family;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-block;
+  margin-bottom:5px;
+}
+
+
+/* Comments
+-------------------------------------------------- */
+
+// should override any other style if this one is specified.
+.hiddenBox {
+  display: none !important;
+}
+
+
+/* Custom Comment Styles
+-------------------------------------------------- */
+
+// Post page
+.comments-count
+{
+  clear: both;
+  font-family: $header-font-family;
+	color: $header-text-color;
+	margin-bottom: 0.875rem;
+  padding-bottom: 1rem;
+	font-weight: bold;
+  border-bottom: 1px solid $sidebar-background-color;
+}
+
+// Index
+.comment-count, .comment-count a {
+  color: $header-text-color;
+}
+
+.comments-body {
+  position: relative;
+}
+
+.comments-body,
+#comment-preview-content {
+	color: $body-text-color;
+	font-weight: normal;
+	line-height: 140%;
+	margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.comments-body.odd i.l {
+  background: url("/img/comments-bubble-left-edge.png");
+  height: 1.75rem;
+  left: 4.375rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0.0rem;
+  width: 1.75rem;
+  z-index: 2;
+}
+
+.comments-body.odd .l {
+  text-align: left;
+}
+
+.comments-body.even i.l {
+  background: url("/img/comments-bubble-right-edge.png");
+  height: 1.75rem;
+  right: 4.25rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0.0rem;
+  width: 1.75rem;
+  z-index: 2;
+}
+
+.comments-body.even .l {
+  text-align: right;
+}
+
+
+#comments-preview-content {
+	background: #eee;
+}
+
+.even hr {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid $content-border-color;
+}
+
+.comments-meta
+{
+  font-family: $header-font-family;
+	font-weight: normal;
+  padding-bottom: 0.875rem;
+  overflow: hidden;
+}
+
+.odd .comments-meta {
+  border-bottom: 1px solid $comments-odd-separator-color;
+  text-align: left;
+}
+
+.even .comments-meta {
+  border-bottom: 1px solid $comments-even-separator-color;
+  text-align: right;
+}
+
+.comments-box {
+  overflow: hidden;
+  padding: 0.875rem;
+  position: relative;
+}
+
+.comments-box p {
+  margin-bottom: 0;
+}
+
+.odd .comments-box {
+  border: 2px solid $comments-odd-border-color;
+  background: none repeat scroll 0 0 $comments-odd-background-color;
+}
+
+.even .comments-box {
+  border: 2px solid $comments-even-border-color;
+  background: none repeat scroll 0 0 $comments-even-background-color;
+}
+
+.comments-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+}
+
+.odd .avatar {
+  float: left;
+  margin: 0 2em 0 0;
+}
+
+.even .avatar {
+  float: right;
+  margin: 0 0 0 2rem;
+}
+
+.comment-info {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comment-name, .comment-date {
+  margin: 0;
+}
+
+.comment-name, .comment-name a {
+  font-weight: bold;
+}
+
+/* Form styles.
+-------------------------------------------------- */
+
+.search input, .search input:focus {
+  font-family: $header-font-family;
+  color: $header-text-color;
+  border: 0 none;
+  box-shadow: none;
+  background: $hero-text-color;
+}
+
+.search .search-button {
+  background: url("/img/search-icon.png") no-repeat scroll 50% 50% $hero-background-color;
+  border: 0 none;
+}
+
+.search a:hover {
+  text-decoration: none;
+}
+
+#comments input, #comments textarea {
+  color: $header-text-color;
+  background-color: $comments-form-background-color;
+  border: 1px solid $comments-form-border-color;
+  box-shadow: none;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+
+#comments textarea {
+  margin-bottom: 1rem;
+}
+
+input#comment-post-button,
+input#comment-confirm-post {
+  font-family: $header-font-family;
+  background-color: $primary-submit-button-color;
+  color: #FFFFFF;
+  font-weight: bold;
+  border: 0 none;
+}
+
+input#comment-preview-button,
+input#comment-edit {
+  font-family: $header-font-family;
+  background-color: $secondary-submit-button-color;
+  color: #FFFFFF;
+  font-weight: bold;
+  border: 0 none;
+  margin-left: 0.125rem;
+}
+
+#comments, #comments label  {
+  color: $body-text-color;
+  font-size: 1rem;
+}
+
+.comments-open-subtext {
+  font-style: none;
+}
+
+.comments-open-subtext a,
+.comments-open-subtext a:hover {
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#comments-open-footer {
+  margin-top: 2rem;
+}
+
+.block-spacing {
+  margin: 1.0em 0;
+}
+
+.form-required {
+  color: #c00;
+}
+
+#comment-text {
+    max-width: 600px;
+    width: 100%;
+    font-size: 14px;
+}
+
+#comment-author,
+#comment-email,
+#comment-url {
+    font-size: 14px;
+    padding: 3px;
+    max-width: 350px;
+    width: 100%;
+}
+
+input.comment-error {
+	background: #f2dede !important;
+  color: #b94a48 !important;
+  border-color: #c00 !important;
+}
+
+textarea.comment-error {
+	background: #f2dede !important;
+  color: #b94a48 !important;
+  border-color: #c00 !important;
+}
+
+span.comment-error {
+  /*color: #b1b1b1;*/
+  display:inline-block;
+  vertical-align: middle;
+  color: #c00;
+  margin-left: 10px;
+  /* padding-bottom is necessary to match bootstrap's default input margin-bottom of 10px. */
+  font-size: 11px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#commentEntryFormSpinner {
+  display:inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+#previewFormSpinner {
+  display:inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+/* Footer
+-------------------------------------------------- */
+
+.footer {
+  padding: 4em 0 4em 0;
+}
+
+.footer-block {
+  padding: 40px 30px;
+  margin: auto;
+  width: auto;
+  max-width: 640px;
+  text-align: left;
+}
+
+p.license {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  color: $footer-text-color;
+}
+
+.footer-links {
+  margin: 1.0em 0;
+  text-align: center;
+}
+
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+.footer-bottom {
+  background-color: $footer-background-color;
+  font-family: $header-font-family;
+  color: $footer-text-color;
+}
+
+.footer-bottom a {
+  color: $footer-link-color;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-link-top {
+  padding: 20px;
+}
+
+// archives
+
+.archive {
+  max-width: 32rem;
+  margin: 5em auto 6rem;
+  padding-left: 2rem;
+}
+
+.archive h2 {
+  font-size: 1rem;
+  color: #a9b7b7;
+  margin: 0;
+  font-family: $header-font-family;
+  text-align: left;
+}
+
+.archive a, .archive span{
+  display: block;
+  float: left;
+  text-decoration: none;
+}
+
+.archive ul li{
+  @include clearfix;
+}
+
+.archive li:not(:last-child) {
+	border-bottom: 1px solid #edf2f3;
+}
+
+.archive span.bullet {
+  color: #a9b7b7;
+}
+
+.archive a.last, .archive span.last {
+  border: 0;
+  margin-bottom: 0;
+}
+
+// Truncate text and add ellipsis for super long titles
+.archive a {
+  text-indent: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  // width: auto;
+  width: 72%;
+}
+
+.archive .skill-label {
+  font-family: $body-font-family;
+  border-bottom: 1px solid #edf2f3;
+  font-size: 2rem;
+  line-height: 2rem;
+  padding-bottom: 1.6rem;
+  text-align: center;
+}
+
+.archive .date-label{
+  font-family: $header-font-family;
+  font-variant: small-caps;
+  text-transform: lowercase;
+  font-weight: 400;
+  text-rendering: auto;
+  letter-spacing: 1px;
+  text-align: right;
+  float: right;
+}
+
+.archive ul {
+  list-style: none;
+  margin: 0 0 0 1.1rem;
+}
+
+.archive ul li {
+  margin: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+.archive .skill-section {
+  padding: 0 0 4.8rem 0;
+}
+
+/*
+ * jReject (jQuery Browser Rejection Plugin)
+ * Version 1.0.0
+ * URL: http://jreject.turnwheel.com/
+ * Description: jReject is a easy method of rejecting specific browsers on your site
+ * Author: Steven Bower (TurnWheel Designs) http://turnwheel.com/
+ * Copyright: Copyright (c) 2009-2011 Steven Bower under dual MIT/GPL license.
+ */
+
+#jr_overlay {
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	z-index: 2147483646;
+	position: absolute;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_wrap {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 2147483647;
+	padding: 0;
+	margin: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_inner {
+	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
+  font-size: 12px !important;
+  line-height: 15px !important;
+	background: #FFF;
+	border: 1px solid #CCC;
+	color: #4F4F4F;
+	margin: 0 auto;
+	height: auto;
+	padding: 20px;
+	position: relative;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_header {
+	display: block;
+	color: #333;
+	padding: 5px;
+	padding-bottom: 0;
+	margin: 0;
+	font-family: Helvetica,Arial,sans-serif;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom: 0.5em;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_inner p {
+  font-size: 12px !important;
+  line-height: 15px !important;
+	text-align: left;
+	padding: 5px;
+	margin: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_inner ul {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+  font-size: 12px !important;
+  line-height: 15px !important;
+}
+
+#jr_inner ul li {
+	cursor: pointer;
+	float: left;
+	width: 120px;
+	height: 122px;
+	margin: 0 10px 10px 10px;
+	padding: 0;
+	text-align: center;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_inner li a {
+	color: #333;
+  font-size: 9px !important;
+  line-height: 13px !important;
+	text-decoration: none;
+	padding: 0;
+	margin: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_inner li a:hover {
+	text-decoration: underline;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_inner .jr_icon {
+	width: 100px;
+	height: 100px;
+	margin: 1px auto;
+	padding: 0;
+	background: transparent no-repeat scroll left top;
+	cursor: pointer;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_close {
+	margin: 0 0 0 50px;
+	clear: both;
+	text-align: left;
+	padding: 0;
+	margin: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_close a {
+	color: #000;
+	display: block;
+	width: auto;
+	margin: 0;
+	padding: 0;
+	text-decoration: underline;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}
+
+#jr_close p {
+	padding: 10px 0 0 0;
+	margin: 0;
+  -moz-box-sizing:content-box !important;
+  box-sizing:content-box !important;
+}

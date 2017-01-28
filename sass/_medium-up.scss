@@ -1,0 +1,67 @@
+.top-bar ul.left {
+  width: 70%;
+}
+
+.top-bar ul.right {
+  width: 30%;
+}
+
+.article-title {
+  max-width: 270px;
+  float: left;
+}
+
+.article-meta {
+  float: right;
+  padding-top: 0.0rem;
+}
+
+.article-date,
+.rating-wrapper-content {
+  text-align: right;
+}
+
+.side {
+  padding-left: 0.563rem;
+  padding-right: 0;
+}
+
+.side .about-me,
+.side .social-links {
+  margin-right: 0;
+  width: inherit;
+}
+
+.social-links .twitter {
+}
+
+.social-links .facebook {
+}
+
+.social-links .google {
+}
+
+.has-form.search {
+  width: 100%;
+  padding: 0;
+}
+
+.search .row.collapse .column,
+.search .row.collapse .columns {
+  padding: 0 0.875rem 0 0;
+}
+
+.profile {
+  margin: 0 auto 1rem;
+  float: none;
+  display: table;
+}
+
+.side .about-me {
+  text-align: center;
+}
+
+.side .about-me h3 {
+  margin: 0 0 1rem;
+}
+

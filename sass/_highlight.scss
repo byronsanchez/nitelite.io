@@ -1,0 +1,356 @@
+
+code,
+pre {
+  padding: 0 3px 2px;
+  font-weight: normal;
+}
+
+// Inline code
+code {
+  padding: 2px 4px;
+}
+
+// Blocks of code
+pre {
+  display: block;
+  margin: 0 0;
+  
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    color: inherit;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+/* Pre and code blocks
+-----------------------------------*/
+
+pre,code,tt,p code,li code,.highlight code,.highlight {
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono",Courier,monospace;
+}
+
+// The inline styles for code.
+pre, code {
+  line-height: 1.45rem;
+  font-size: 13px;
+  color: $body-text-color !important;
+  background-color: $sidebar-background-color !important;
+}
+
+// The inline styles for code.
+.even pre,
+.even code {
+  background-color: $body-background-color !important;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+code {
+  color: $inlineColor; // force override foundation
+  white-space: pre;
+}
+
+pre code {
+  white-space: pre;
+}
+
+/* Highlight blocks.
+-------------------------------------------------- */
+
+.highlight {
+  border: $code-border;
+  background: $code-background-color; 
+  overflow-y: hidden;
+  overflow-x: auto;
+  max-width: 960px;
+  width: auto;
+  margin: 1em auto;
+}
+
+.even .highlight {
+  border: $content-border-color;
+  background: $body-background-color; 
+}
+
+// Reset everything on pre, code will do the legwork for all syntax highlighting.
+.highlight pre {
+  padding: 0;
+  background: none;
+  margin-bottom: 0;
+}
+
+// Customize!
+.highlight pre, .highlight pre code {
+  color: $code-default-text-color;
+}
+
+.highlight code, .highlight pre code {
+// matches with front page code posts, not portfolio. - no table to overflow
+// so the code block does.
+  //overflow: scroll;
+  //overflow-y: hidden;
+  display: block;
+  padding: .8em !important;
+  //overflow-x: auto;
+  background: $code-background-color;
+  line-height: 1.45rem;
+}
+
+.even .highlight code,
+.even .highlight pre code {
+  background: $body-background-color;
+}
+
+.highlight table td.code {
+  width: 100%;
+}
+
+// BLOG HIGHLIGHT OVERRIDES
+
+#blog .highlight table
+{
+	margin:0;
+	padding:0;
+}
+
+#blog .highlight table tr
+{
+	border: none;
+	background:none;
+	margin:0;
+	padding:0;
+}
+
+#blog .highlight table tr:nth-child(2n)
+{
+	background:none;
+}
+
+#blog .highlight table tr th[align="center"], #blog table .highlight tr td[align="center"] {
+	text-align:center;
+}
+
+// BOOTSTRAP OVERRIDE to kill scrollbar overflow quirkiness (bootstrap's
+// default styles add a 1px padding to td on all sides which would randomnly be
+// the cause of spontaneous premature overflows.
+#blog .highlight table tr th, #blog .highlight table tr td, .highlight td
+{
+	border:none;
+	text-align:left;
+	margin:0;
+	padding:0;
+}
+
+/* Scrollbar styles.
+-------------------------------------------------- */
+
+pre::-webkit-scrollbar,.highlight::-webkit-scrollbar {
+  height: .5rem;
+  background: rgba(0,0,0,0.15);
+}
+
+pre::-webkit-scrollbar-thumb:horizontal,.highlight::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(0,0,0,0.2);
+}
+
+pre::-webkit-scrollbar,.pre-code::-webkit-scrollbar,.highlight code::-webkit-scrollbar,.highlight::-webkit-scrollbar,.highlight code::-webkit-scrollbar {
+  height: .7rem;
+  background: rgba(0,0,0,0.15);
+}
+
+/* Specific-language overrides.
+-------------------------------------------------- */
+
+/* "text"
+-------------------------------------------------- */
+
+// From bootstrap's pre code styles
+$text_background_code: $code-background-color;
+$text_color_code_text: $code-default-text-color;
+
+.highlight.text {
+  border: $code-border;
+  background-color: $text_background_code;
+  color: $text_color_code_text;
+}
+
+.highlight.text pre, .highlight.text pre code {
+  color: $text_color_code_text;
+}
+
+.highlight.text code, .highlight.text pre code {
+  background: $text_background_code;
+}
+
+pre::-webkit-scrollbar,.highlight.text::-webkit-scrollbar {
+  background: rgba(0,0,0,0.15);
+}
+
+pre::-webkit-scrollbar-thumb:horizontal,.highlight.text::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(0,0,0,0.2);
+}
+
+pre::-webkit-scrollbar,.pre-code::-webkit-scrollbar,.highlight.text code::-webkit-scrollbar,.highlight.text::-webkit-scrollbar,.highlight.text code::-webkit-scrollbar {
+  background: rgba(0,0,0,0.15);
+}
+
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+.tomorrow-comment, pre .comment, pre .title {
+  color: $comment-color;
+}
+
+.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+  color: $variable-color;
+}
+
+.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+  color: $number-color;
+}
+
+.tomorrow-yellow, pre .class, pre .ruby .class .title, pre .css .rules .attribute {
+  color: $class-color;
+}
+
+.tomorrow-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+  color: $string-color;
+}
+
+.tomorrow-aqua, pre .css .hexcolor {
+  color: $hex-color;
+}
+
+.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+  color: $function-color;
+}
+
+.tomorrow-purple, pre .keyword, pre .javascript .function {
+  color: $keyword-color;
+}
+
+pre code {
+  display: block;
+  background: $code-background-color;
+  color: $code-default-text-color;
+  font-family: Menlo,Monaco,Consolas,"Liberation Mono",Courier,monospace;
+  line-height: 1.5;
+  padding: 10px;
+}
+
+.even pre code {
+  background: $body-background-color;
+}
+
+/* dream key styles
+-------------------------------------------------- */
+
+.text-highlight.d,
+.text-highlight.d h1,
+.text-highlight.d h2,
+.text-highlight.d h3,
+.text-highlight.d h4,
+.text-highlight.d h5,
+.text-highlight.d h6 {
+  color: $dream-d-color;
+}
+
+.text-highlight.hh,
+.text-highlight.hh h1,
+.text-highlight.hh h2,
+.text-highlight.hh h3,
+.text-highlight.hh h4,
+.text-highlight.hh h5,
+.text-highlight.hh h6 {
+  color: $dream-hh-color;
+}
+
+.text-highlight.ld,
+.text-highlight.ld h1,
+.text-highlight.ld h2,
+.text-highlight.ld h3,
+.text-highlight.ld h4,
+.text-highlight.ld h5,
+.text-highlight.ld h6 {
+  color: $dream-ld-color;
+}
+
+.text-highlight.fa,
+.text-highlight.fa h1,
+.text-highlight.fa h2,
+.text-highlight.fa h3,
+.text-highlight.fa h4,
+.text-highlight.fa h5,
+.text-highlight.fa h6 {
+  color: $dream-fa-color;
+}
+
+.text-highlight.nd,
+.text-highlight.nd h1,
+.text-highlight.nd h2,
+.text-highlight.nd h3,
+.text-highlight.nd h4,
+.text-highlight.nd h5,
+.text-highlight.nd h6 {
+  color: $dream-nd-color;
+}
+
+/* pickup key styles
+-------------------------------------------------- */
+
+
+.text-highlight.out,
+.text-highlight.out h1,
+.text-highlight.out h2,
+.text-highlight.out h3,
+.text-highlight.out h4,
+.text-highlight.out h5,
+.text-highlight.out h6 {
+  color: $pickup-out-color;
+}
+
+
+.text-highlight.in,
+.text-highlight.in h1,
+.text-highlight.in h2,
+.text-highlight.in h3,
+.text-highlight.in h4,
+.text-highlight.in h5,
+.text-highlight.in h6 {
+  color: $pickup-in-color;
+}
+
+
+.text-highlight.sa,
+.text-highlight.sa h1,
+.text-highlight.sa h2,
+.text-highlight.sa h3,
+.text-highlight.sa h4,
+.text-highlight.sa h5,
+.text-highlight.sa h6 {
+  color: $pickup-sa-color;
+}
+
+
+.text-highlight.cl,
+.text-highlight.cl h1,
+.text-highlight.cl h2,
+.text-highlight.cl h3,
+.text-highlight.cl h4,
+.text-highlight.cl h5,
+.text-highlight.cl h6 {
+  color: $pickup-cl-color;
+}
+

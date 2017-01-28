@@ -1,0 +1,43 @@
+@import "variables";
+@import "settings";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "../bower_components/foundation/scss/normalize";
+@import "../bower_components/foundation-icons/foundation_icons_general/sass/general_foundicons";
+@import "../bower_components/foundation/scss/foundation";
+@import "foundation_overrides";
+@import "highlight";
+
+@import "base";
+
+// Media query using Foundation Framework
+@media #{$small-up} {
+  @import "small-up";
+}
+@media #{$small-only} {
+}
+
+@media #{$medium-up} {
+  @import "medium-up";
+}
+@media #{$medium-only} {
+}
+
+@media #{$large-up} {
+  @import "large-up";
+}
+@media #{$large-only} {
+}
+
+@media #{$xlarge-up} {
+  @import "xlarge-up";
+}
+@media #{$xlarge-only} {
+}
+
+@media #{$xxlarge-up} {
+  @import "xxlarge-up";
+}
+@media #{$xxlarge-only} {
+}
+
