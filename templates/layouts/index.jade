@@ -1,0 +1,66 @@
+
+extends blog-default
+
+block navbar
+  +navbar(0)
+
+block content
+  block index-title-top
+  if articles
+    - var articleCount = articles.length;
+    each article, i in articles
+      - var currentArticleIndex = i + 1;
+      - var klass = ((currentArticleIndex >= articleCount) ? 'article' : 'article index')
+      article(class=klass)
+        header.blogheader
+
+          div.content-meta
+            include ../includes/skills
+            div(class='article-title')
+              h2.title
+                a(href='#{ article.url }').title-link= article.title
+              include ../includes/keys
+            div(class='article-meta')
+              div.article-date
+                time(datetime="#{moment.utc(page.date).format('YYYY-MM-DDTHH:mm:ss') + 'Z'}")
+                  !{ moment.utc(page.date).format(locals.date_format_post) }
+              include ../includes/ratings
+
+        div.blogbody
+          if article.description
+            !{ typogr(article.description).typogrify() }
+          else
+
+            if article.intro
+              !{ typogr(article.intro).typogrify() }
+            else
+              if article.content
+                !{ typogr(article.content).typogrify() }
+
+        footer.blogfooter
+          div.metadata
+            p.more-link.index
+              // Get comment data
+              - var comments_count = 0
+              if article.comments
+                - comments_count = _.keys(article.comments).length
+
+              a(href='#{ article.url }#comments')
+                case comments_count
+                  when 0
+                    span.comment-count No Comments
+                  when 1
+                    span.comment-count 1 Comment
+                  default
+                    span.comment-count #{ comments_count } Comments
+              | &nbsp;&nbsp;|&nbsp;&nbsp;
+              a(href=article.url) View Entry &#8594;
+  else
+    block no-articles
+      | There are no published journal entries yet!
+
+  block index-title-bottom
+  block archives-link
+    p.more-link
+      a(href='/archives/') View Archives &#8594;
+

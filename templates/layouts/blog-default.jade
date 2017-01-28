@@ -1,0 +1,139 @@
+doctype html
+block vars
+  - var bodyclass = "blog";
+//if lt IE 7
+  <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+//if IE 7
+  <html class="no-js lt-ie9 lt-ie8">
+//if IE 8
+  <html class="no-js lt-ie9">
+//[if gt IE 8]><!
+html(class='no-js')
+  //<![endif]
+
+  include ../includes/header
+
+  body(id=bodyclass)
+
+    div.content
+      // Hero Unit
+      section#hero-unit
+        div.row
+          div.small-10.columns
+            div.logo-container
+
+              // Logo Text
+              div.logo-text
+                h1
+                  a(href='/', class='brand')
+                    span.tpk tpk
+
+      // TODO: Draw a cartoon image and put it here as bg with stars too
+      div.background-image
+
+      include ../mixins/navbar
+      block navbar
+        +navbar(-1)
+
+    div.row.main-container
+      div.medium-7.columns.content-container
+        // The blog content
+        div#nl-content
+          block content
+            h2 Welcome to zombocom!
+
+      div.medium-3.columns.sidebar-container
+        // The sidebar
+        div#nl-sidebar
+
+          // About Me
+          div.side
+            div.about-me.clearfix
+              img(src='http://www.gravatar.com/avatar/493f071079d7dc98b11789d18e1c0799.png', title='tehpotatoking\'s avatar', alt='tehpotatoking\'s avatar', class='profile')
+              include ../includes/about
+
+            div.social-links.clearfix
+              a(href='https://youtube.com/user/tehPotatoKing')
+                div.youtube
+                  img(src='/img/youtube-icon.png', alt='youtube icon').social-icon
+              div.facebook
+                img(src='/img/facebook-icon.png', alt='facebook icon').social-icon
+              a(href='https://twitter.com/tehPotatoKing')
+                div.twitter
+                  img(src='/img/twitter-icon.png', alt='twitter icon').social-icon
+              a(href='https://plus.google.com/u/0/b/113250549473453821044/113250549473453821044')
+                div.google
+                  img(src='/img/gplus-icon.png', alt='google plus icon').social-icon
+
+          if most_popular_articles
+            div.side
+              div.most-popular
+                div.nl-label.popular-label
+                  h3.side-label Most Popular Entries
+                ul.nl-label-list
+                  for link, title in most_popular_articles
+                    li.nl-label.popular-item-label
+                      a(href='#{ link }') #{ title } &bull;
+
+          div.side
+            div.ratings
+              div.nl-label.ratings-label
+                h3.side-label Ratings
+              a(href='/tag/5-stars/')
+                div.rating-five
+                  div.rating-wrapper
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+              a(href='/tag/4-stars/')
+                div.rating-four
+                  div.rating-wrapper
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+              a(href='/tag/3-stars/')
+                div.rating-three
+                  div.rating-wrapper
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+              a(href='/tag/2-stars/')
+                div.rating-two
+                  div.rating-wrapper
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+              a(href='/tag/1-star/')
+                div.rating-one
+                  div.rating-wrapper
+                    img(src='/img/star-fill-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+                    img(src='/img/star-empty-inverse.png', class='rating-icon')
+
+          div.side
+            div.skills
+              div.nl-label.skills-label
+                h3.side-label Skills
+              ul.nl-label-list
+                for skill in skills
+                  li.nl-label.skills-item-label
+                    a(href='/tag/#{ skill }/') #{ skill } &bull;
+
+  footer.footer-bottom
+    div.row
+      div.small-10.columns
+        footer
+          include ../includes/footer
+
+    include ../includes/scripts
+

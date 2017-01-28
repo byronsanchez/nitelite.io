@@ -1,0 +1,59 @@
+head
+  block head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='author' content='#{ locals.author }')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+    // Tile image for Windows
+    meta(name='application-name' content='#{ locals.application }')
+    meta(name='msapplication-TileColor' content='#0A3E66')
+    meta(name='msapplication-TileImage' content='/touch-icon-ipad-retina-precomposed.png')
+  
+    title
+      block title
+        if page
+          if page.title
+            | #{ page.title } | #{ locals.title }
+        else
+          | #{ locals.title }
+
+    | <!-- For legacy support of HTML5 elements -->
+    | <!--[if lt IE 9]>
+    |   <script src="/js/html5shiv.min.js"></script>
+    | <![endif]-->
+
+    script(src='/js/modernizr.min.js')
+
+    | <!-- Stylesheets -->
+    link(rel='stylesheet', href='/css/main.css', type='text/css')
+    | <!--[if lt IE 10]>
+    |   <link href="/css/ie9.css" media="screen, projection" 
+    |   rel="stylesheet" type="text/css" />
+    | <![endif]-->
+
+    link(rel='stylesheet', href='/css/print.css', media='print', 
+    type='text/css')
+
+    link(rel='alternate', href='http://feeds.tehpotatoking.com/tehpotatoking/', type='application/rss+xml', title=description)
+
+    // Fonts
+    // Code
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400')
+    // Headings
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Dosis:400,700')
+    // TODO: Title
+    // link(rel='stylesheet', type='text/css', href='')
+    // Text
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic')
+
+    // Favicons
+    link(rel='shortcut icon', href='/favicon.ico')
+    link(rel='apple-touch-icon', href='/touch-icon-iphone-precomposed.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='/touch-icon-ipad-precomposed.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='/touch-icon-iphone-retina-precomposed.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='/touch-icon-ipad-retina-precomposed.png')
+
+    include analytics
+    include search
+

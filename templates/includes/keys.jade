@@ -1,0 +1,23 @@
+- page = article || page
+if keys_enabled
+  for tag in page.metadata.tags
+    if is_skill(tag)
+      if tag == "dream"
+        div.skill-key-content
+          span.text-highlight.nd NON-DREAM
+          | &nbsp;|&nbsp;
+          span.text-highlight.d DREAM
+          | &nbsp;|&nbsp;
+          span.text-highlight.ld LUCID
+          | &nbsp;|&nbsp;
+          span.text-highlight.fa FA
+          | &nbsp;|&nbsp;
+          span.text-highlight.hh HH
+      if tag == "pickup"
+        div.skill-key-content
+          span.text-highlight.sa SET-ANALYSIS
+          | &nbsp;|&nbsp;
+          span.text-highlight.out OUT-OF-SET
+          | &nbsp;|&nbsp;
+          span.text-highlight.in IN-SET
+

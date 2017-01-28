@@ -1,0 +1,13 @@
+extends blog-default
+
+block navbar
+  +navbar(page.metadata.nav_id)
+
+block content
+
+  div.pagebody
+    article.article
+      block page-content
+        div.blogbody
+          section.content!= typogr(page.html).typogrify()
+

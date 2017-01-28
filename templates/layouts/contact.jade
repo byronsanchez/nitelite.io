@@ -1,0 +1,77 @@
+extends page
+
+block navbar
+  +navbar(3)
+
+block page-content
+
+  header
+    h2.title
+      a(href='#{ page.url }').title-link= page.title
+
+  p If you want to contact me, use the form below.
+  p Thank you for reading!
+  div#endcomments &nbsp;
+
+  // CONTACT FORM BEGINS
+  div#comments
+
+    // Notices
+    // Success
+    div#comments-open-response-success.alert-box.success.hiddenBox
+      p.comments-open-subtext
+        | Success! Your message has been submitted!&nbsp;
+        a(href='javascript:void 0;', onclick='window.location.hash="#contact-form";window.location.reload(false)') Reload form.
+
+    // Error
+    div#comments-open-response-error.alert-box.warning.hiddenBox
+
+    // The main comment section
+    div#primary-comment-form.comment-form
+      form#contact-form
+        fieldset
+          input(type='hidden', name='post_id', value='/contact')
+          input(type='hidden', name='return_url', value='#{ page.url }')
+
+          div.comments-open
+            div#comments-open-content.comments-open-content
+
+              // Comment form fields
+
+              div#comments-open-text(style='display: none')
+                label(for='comment-text')
+                  | Message&nbsp;
+                  span.form-required(title='This field is required.') *
+                textarea#comment-text(name='comment', rows='10', cols='30', required)
+
+              div#comments-open-data(style='display: none')
+
+                // Your information
+                p
+                  label(for='comment-author')
+                    | Name&nbsp;
+                    span.form-required(title='This field is required.') *
+                  input(type='text', id='comment-author', name='name', size='30', class='grayText', placeholder='Name')
+                  span#comment-author-error.comment-error.hiddenBox Name is required to send a message
+
+                p
+                  label(for='comment-email')
+                    | Email Address&nbsp;
+                    span.form-required(title='This field is required.') *
+                  input(type='text', id='comment-email', name='email', size='30', class='grayText', placeholder='test@example.com')
+                  span#comment-email-error.comment-error.hiddenBox Please enter a valid email address
+
+                p
+                  label(for='comment-url') Web Site URL
+                  input(type='text', id='comment-url', name='link', size='30', class='grayText', placeholder='http://www.example.com')
+                  span#comment-url-error.comment-error.hiddenBox Invalid URL
+
+              div#comments-open-footer.comments-open-footer(style='display: none;')
+                // Initial button states == disabled
+                input(type='submit', name='contact', id='comment-post-button', value='Submit', class='button', disabled='disabled')
+                div#commentEntryFormSpinner.commentSpinner.hiddenBox
+
+    noscript
+      p
+        | Please enable JavaScript to send a message.
+

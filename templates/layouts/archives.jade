@@ -1,0 +1,71 @@
+extends blog-default
+// -This logic should be moved to a view at some point
+
+block navbar
+  +navbar(2)
+
+block content
+
+  - var archives = _.chain(env.helpers.getArticles(contents)).groupBy(function(item) {
+  -   return item.metadata.category
+  - }).value()
+
+  - for (var skill in archives) {
+  -  archives[skill] = _.groupBy(archives[skill], function(item){return item.metadata.notebook;})
+
+    - for (var notebook in archives[skill]) {
+
+      -  archives[skill][notebook] = _.groupBy(archives[skill][notebook], function(item){return item.date.getFullYear();})
+
+      - for (var year in archives[skill][notebook]) {
+        - archives[skill][notebook][year] = _.groupBy(archives[skill][notebook][year], function(item){return item.date.getMonth();})
+      - }
+
+    - }
+
+  - }
+
+  section.archive
+    h2 archives
+
+    - var skillsK = _.chain(archives).keys().sort().value()
+    - for(skill in skillsK) {
+      div.skill-section
+
+        - notebooks = archives[skillsK[skill]]
+
+        h3.skill-label() #{ skillsK[skill].charAt(0).toUpperCase() + skillsK[skill].slice(1) }
+
+        - var notebooksK = _.chain(notebooks).keys().value()
+        - for(var notebook in notebooksK){
+
+          div.notebook-section
+
+            - years = notebooks[notebooksK[notebook]]
+
+            h4.notebook-label()=notebooksK[notebook]
+
+            ul
+              - var yearsK = _.chain(years).keys().reverse().value()
+              - for(var year in yearsK) {
+                - months = years[yearsK[year]]
+                - var monthsK = _.chain(months).keys().reverse().value()
+                - for(month in monthsK){
+                  each item in months[monthsK[month]]
+
+                    li
+                      span.bullet &bull;
+                      a(href=item.url) #{ item.title }
+                      span.date-label()=item.date.toISOString().slice(0,10)
+
+
+                - }
+
+              - }
+
+        - }
+
+    - }
+
+
+

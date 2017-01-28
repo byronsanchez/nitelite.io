@@ -1,0 +1,48 @@
+- page = article || page
+- rating_found = 0
+if ratings_enabled
+  for tag in page.metadata.tags
+    if tag == "5 stars"
+      - rating_found = 1
+      div.rating-wrapper-content
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+    else if tag == "4 stars"
+      - rating_found = 1
+      div.rating-wrapper-content
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+    else if tag == "3 stars"
+      - rating_found = 1
+      div.rating-wrapper-content
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+    else if tag == "2 stars"
+      - rating_found = 1
+      div.rating-wrapper-content
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+    else if tag == "1 star"
+      - rating_found = 1
+      div.rating-wrapper-content
+        img(src='/img/star-fill.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+        img(src='/img/star-empty.png', class='rating-icon')
+
+  if rating_found == 0
+    div.rating-wrapper-content not rated
+

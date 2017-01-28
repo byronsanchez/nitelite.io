@@ -1,0 +1,56 @@
+mixin navbar(nav_id)
+
+  div.contain-to-grid
+    nav.top-bar(data-topbar)
+      section.top-bar-section
+        ul.left
+
+          // Nav IDs are assigned on each page in the YAML Front Matter or through
+          // a jade template variable
+          //
+          // Home Page == 0
+          // About == 1
+          // Archives == 2
+          // Contact == 3
+
+          if nav_id == 0
+            li.active
+              a(href='/') home
+          else
+            li
+              a(href='/') home
+
+          if nav_id == 1
+            li.active
+              a(href='/about/') about
+          else
+            li
+              a(href='/about/') about
+
+          if nav_id == 2
+            li.active
+              a(href='/archives/') archives
+          else
+            li
+              a(href='/archives/') archives
+
+          if nav_id == 3
+            li.active
+              a(href='/contact/') contact
+          else
+            li
+              a(href='/contact/') contact
+
+        ul.right
+          li.has-form.search.show-for-medium-up
+            div.row.collapse
+              form(action='/search', id='search-form')
+                div.large-8.small-7.columns
+                  input(type='text', placeholder='search...', name='q').field
+                div.large-2.small-3.columns
+                  input(type='submit', class='button expand search-button', value='')
+                  //a(href='#', class='button expand search-button', onclick='document.getElementById(\'search-form\').submit()') &nbsp;
+          li.toggle-topbar.menu-icon
+            a(href='#')
+              span &nbsp;
+

@@ -1,0 +1,6 @@
+- page = article || page
+if skills_enabled
+  for tag in page.metadata.tags
+    if is_skill(tag)
+      div.skill-wrapper-content
+        a(href='/tag/#{ tag }/') #{ tag }

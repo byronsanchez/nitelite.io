@@ -1,0 +1,196 @@
+
+extends blog-default
+
+block content
+  - var articles = env.helpers.getArticles(contents);
+  article.article
+    header.blogheader
+
+      div.content-meta
+        include ../includes/skills
+        div(class='article-title')
+          h2.title
+            a(href='#{ page.url }').title-link= page.title
+          include ../includes/keys
+        div(class='article-meta')
+          div.article-date
+            time(datetime="#{moment.utc(page.date).format('YYYY-MM-DDTHH:mm:ss') + 'Z'}")
+              !{ moment.utc(page.date).format(locals.date_format_post) }
+          include ../includes/ratings
+
+    div.blogbody
+      section.content!= typogr(page.html).typogrify()
+
+    footer.blogfooter
+
+      // Related Posts
+      if page.related_articles
+        h3 Related Entries
+        div.related-posts
+          ul
+            - var i = 0
+            each article in page.related_articles
+              - i = i + 1
+              li
+                a(href="#{ article.url }") #{ article.metadata.title }
+              if i >= locals.related_entries_limit
+                - break;
+
+      // Pagination
+      - var articlesTitles = _.map(articles, function(value, key, list) {
+      - return value.metadata.title;
+      - });
+      - var thisPageIndex = articlesTitles.indexOf(page.title);
+      - var prevArticle = articles[thisPageIndex+1];
+      - var nextArticle = articles[thisPageIndex-1];
+      - var prevUrl = prevArticle && prevArticle.metadata ? prevArticle.url : '/';
+      - var nextUrl = nextArticle && nextArticle.metadata ? nextArticle.url : '/';
+      - var prevLabel = prevArticle && prevArticle.metadata ? prevArticle.title : 0;
+      - var nextLabel = nextArticle && nextArticle.metadata ? nextArticle.title : 0;
+
+      div.footer-nav
+        if prevUrl
+          if prevLabel
+            div(style='float: left')
+              a(rel='prev', href='#{ prevUrl }') &laquo;&nbsp;#{ prevLabel }
+        if nextUrl
+          if nextLabel
+            div(style='float: right')
+              a(rel='next', href='#{ nextUrl }') #{ nextLabel }&nbsp;&raquo;
+
+  // Comments Count
+  - var comments_count = 0
+  if (page.comments)
+    - comments_count = _.keys(page.comments).length
+    
+  case comments_count
+    when 0
+      div.comments-count No Comments
+    when 1
+      div.comments-count 1 Comment
+    default
+      div.comments-count #{ comments_count } Comments
+
+  // Comments
+  if page.comments
+    - var i = 0
+    for c in page.comments
+      - var permalink = c.metadata.id;
+      - var content = c.html
+      - var row = i % 2 ? 'even' : 'odd'
+      - i = i + 1;
+
+      div(class='comments-body #{ env.helpers.handleize(c.metadata.name) } #{ row }', id='#{ c.metadata.id }')
+
+        i.l
+
+        // Gravatar 
+        span.avatar
+          img(src='#{ locals.gravatar_url }/#{ c.metadata.gravatar_hash }?s=#{ locals.gravatar_size }&d=#{ locals.gravatar_default }')
+
+        // Metadata
+        div.comments-wrapper
+          div.comments-box
+            div.comments-meta
+              if c.metadata.link && c.metadata.link != ''
+                p.comment-name
+                  a(rel='nofollow', target='_blank', title='#{ c.metadata.link }', href='#{ c.metadata.link }') #{ c.metadata.name }
+              else
+                p.comment-name #{ c.metadata.name }
+
+              p.comment-date
+                !{ moment.utc(c.metadata.date).format(locals.date_format_comment) }&nbsp;|&nbsp;
+                a(href='#{ page.url }##{ permalink }') Permalink
+
+            // CONTENT
+            | !{content}
+
+
+  // Comments Form
+  if page.metadata.comments_enabled
+    div#comments
+
+      // Titles for each state
+      h2#header-post-comment.comments-header Post a comment
+      h3#header-verify-comment.comments-header.hiddenBox Verify your Comment
+      h3#header-preview-comment.comments-header.hiddenBox Previewing your Comment
+
+      // Notices
+      // Success
+      div#comments-open-response-success.alert-box.success.hiddenBox
+        p.comments-open-subtext
+          | Success! Your comment has been submitted and is now pending approval.&nbsp;
+          a(href='javascript:void 0;', onclick='window.location.hash="#comment-form";window.location.reload(false)') Post another comment
+
+      // Error
+      div#comments-open-response-error.alert-box.warning.hiddenBox
+
+      div#comment-preview.hiddenBox
+        div.comments-content
+          div.comment
+            div#comment-preview-content.comment-content
+              // Place preview content here
+
+            p.comment-footer
+              | Posted by&nbsp;
+              span#comment-preview-author
+              | &nbsp;on&nbsp;
+              span#comment-preview-datetime
+
+      // Notice below the comment preview
+      div#comment-preview-confirmation.hiddenBox.yellowBox
+        p This is only a preview. Your comment has not yet been posted.
+        form#comment-preview-form
+          input(type='submit', name='post', id='comment-confirm-post', value='Submit', class='button')
+          input(type='submit', name='edit', id='comment-edit', value='Edit', class='button')
+          div#previewFormSpinner.hiddenBox
+
+      // The main comment section
+      div#primary-comment-form.comment-form
+        form#comment-form
+          fieldset
+            input(type='hidden', name='post_id', value='#{ page.url }')
+            input(type='hidden', name='return_url', value='#{ page.url }')
+            input(type='hidden', name='skill', value='#{ page.metadata.category}')
+            input(type='hidden', name='notebook', value='#{ page.metadata.notebook}')
+
+            div.comments-open
+              div#comments-open-content.comments-open-content
+
+                // Comment form fields
+
+                div#comments-open-text(style='display: none')
+                  label(for='comment-text')
+                    | Comment&nbsp;
+                    span.form-required(title='This field is required.') *
+                  textarea#comment-text(name='comment', rows='10', cols='30', required)
+                  p.comments-open-subtext
+                    | All comments are held for moderation. Markdown formatting is available.
+
+                div#comments-open-data(style='display: none')
+
+                  // Your information
+                  p
+                    label(for='comment-author') Name
+                    input(type='text', id='comment-author', name='name', size='30', class='grayText', placeholder='Name')
+
+                  p
+                    label(for='comment-email') Email Address
+                    input(type='text', id='comment-email', name='email', size='30', class='grayText', placeholder='test@example.com')
+                    span#comment-email-error.comment-error.hiddenBox Please enter a valid email address
+
+                  p
+                    label(for='comment-url') Web Site URL
+                    input(type='text', id='comment-url', name='link', size='30', class='grayText', placeholder='http://www.example.com')
+                    span#comment-url-error.comment-error.hiddenBox Invalid URL
+
+                div#comments-open-footer.comments-open-footer(style='display: none;')
+                  // Initial button states == disabled
+                  input(type='submit', name='post', id='comment-post-button', value='Submit', class='button', disabled='disabled')
+                  input(type='submit', name='preview', id='comment-preview-button', value='Preview', class='button', disabled='disabled')
+                  div#commentEntryFormSpinner.commentSpinner.hiddenBox
+
+      noscript
+        p
+          | Please enable JavaScript to submit a comment.
+

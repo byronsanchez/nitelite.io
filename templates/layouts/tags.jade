@@ -1,0 +1,43 @@
+extends index
+//- Since we're extending index, we need to ensure there are no active items
+//- in the navbar
+block navbar
+  +navbar(-1)
+
+block index-title-top
+  div.index-title-top.clearfix
+    if prevPage
+      span.index-nav-left
+        a(href='#{ prevPage.url }') &#8592;
+    else
+      span.index-nav-left &#8592;
+
+    if nextPage
+      span.index-nav-right
+        a(href='#{ nextPage.url }') &#8594;
+    else
+      span.index-nav-right &#8594;
+
+    h2 Tag: #{ tag }
+
+block index-title-bottom
+  div.index-title-bottom.clearfix
+    if prevPage
+      span.index-nav-left
+        a(href='#{ prevPage.url }') &#8592;
+    else
+      span.index-nav-left &#8592;
+
+    if nextPage
+      span.index-nav-right
+        a(href='#{ nextPage.url }') &#8594;
+    else
+      span.index-nav-right &#8594;
+
+    h2 Tag: #{ tag }
+
+block no-articles
+  | There doesn't appear to be any entries tagged as #{ tag }.
+
+block archives-link
+
