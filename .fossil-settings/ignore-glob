@@ -1,0 +1,113 @@
+#########
+# GENERAL
+#########
+
+# Ignore projectile cache for emacs
+.projectile
+
+# OS Files
+.DS_Store
+._*
+
+# vi/vim
+*~
+*.swp
+*.swo
+
+# Eclipse files
+.settings*/
+.buildpath*
+project.properties*
+.htaccess*
+error_log*
+.project*
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+# Node.js files
+npm-debug.log
+build/
+node_modules/
+
+# Bower files
+bower_components/
+
+# Ruby files
+vendor/bundle/
+
+# Wintersmith files
+.sass-cache/
+wintersmith/build/*
+wintersmith/contents/css/
+wintersmith/contents/images/
+wintersmith/contents/js/
+
+##################
+# PROJECT-SPECIFIC
+##################
+
+# Post drafts don't need to be committed. They are CONSTANTLY changing.
+contents/drafts/
+# Comments are generated using a sqlite db, thus the generated files don't need
+# to be committed
+contents/comments/
+
+# Ignore compiled/derivative files that can be rebuilt from already committed
+# files.
+contents/css/
+contents/js/
+contents/fonts/
+
+# Ignore compiled/derivative files that can be rebuilt from already
+# committed files.
+*.db*
+*.db*
+
+assets/support/node_modules/
+
+# org-mode all of the following are generated files by org-mode, and therefore
+# derivatives of org-mode source data
+
+core
+core.*
+*.html
+*~
+.#*
+\#*\#
+*.txt
+*.tex
+*.aux
+*.dvi
+*.log
+*.out
+*.ics
+*.pdf
+*.xml
+*.org-source
+# pngs are derivaive of graph files. add actual images manually
+*.png
+*.toc
+
+# Ignore libs
+
+lib/
+
+# Ignore binary files
+
+data/
+assets/
+
+# Ignore cloud drive symlinks (dropbox, icloud, etc.)
+public/
+
