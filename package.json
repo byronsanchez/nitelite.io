@@ -1,0 +1,52 @@
+{
+  "author": "tehPotatoKing (http://tehpotatoking.com)",
+  "name": "tehpotatoking",
+  "description": "Personal Blog",
+  "version": "1.0.0",
+  "homepage": "http://tehpotatoking.com",
+  "repository": {
+    "type": "git",
+    "repository": "none"
+  },
+  "devDependencies"                : {
+    "grunt"                        : "~0.4.2",
+    "grunt-cli"                    : "~0.1.11",
+    "bower"                        : "~1.3.12",
+    "grunt-contrib-watch"          : "~0.5.3",
+    "grunt-contrib-compass"        : "~0.7.0",
+    "grunt-bower-task"             : "~0.4.0",
+    "grunt-contrib-imagemin"       : "~0.4.0",
+    "grunt-wintersmith"            : "0.0.2",
+    "grunt-contrib-coffee"         : "~0.8.0",
+    "grunt-contrib-concat"         : "~0.3.0",
+    "grunt-contrib-uglify"         : "~0.2.6",
+    "grunt-contrib-copy"           : "~0.5.x",
+    "grunt-css"                    : "~0.5.4",
+    "grunt-smushit"                : "~1.1.2",
+    "grunt-shell"                  : "~0.6.1",
+    "grunt-jslint"                 : "~1.1.2",
+    "js-yaml"                      : "~3.0.1",
+    "robotskirt"                   : "~2.7.x",
+    "coffee-script"                : "~1.6.x",
+    "async"                        : ">= 0.1.x",
+    "jade"                         : "~1.0.x",
+    "execSync"                     : "1.0.1-pre",
+    "moment"                       : "~2.5.0",
+    "mkdirp"                       : "~0.5.0",
+    "underscore"                   : "~1.4.x",
+    "typogr"                       : "~0.6.x",
+    "wintersmith"                  : "~2.0.x",
+    "colors"                       : "~0.6.x",
+    "glob"                         : "~3.2.x",
+    "sleep"                        : "~1.1.x",
+    "sqlite3"                      : "~3.0.x",
+    "highlight.js"                 : "~7.5.x",
+    "wintersmith-robotskirt"       : "0.1.x",
+    "wintersmith-articles-helper"  : "0.1.x",
+    "wintersmith-handleize-helper" : "0.1.x",
+    "wintersmith-tag-pages"        : "0.1.x"
+  },
+  "engine": {
+    "node": "~0.10.41"
+  }
+}
