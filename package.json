@@ -44,7 +44,8 @@
     "wintersmith-robotskirt"       : "0.1.x",
     "wintersmith-articles-helper"  : "0.1.x",
     "wintersmith-handleize-helper" : "0.1.x",
-    "wintersmith-tag-pages"        : "0.1.x"
+    "wintersmith-tag-pages"        : "0.1.x",
+    "wintersmith-html"             : "git://github.com/alnorth/wintersmith-html"
   },
   "engine": {
     "node": "~0.10.41"

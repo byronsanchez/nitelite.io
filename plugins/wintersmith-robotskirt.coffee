@@ -108,7 +108,7 @@ module.exports = (env, callback) ->
         lang = options['lang'] || 'text'
         options['encoding'] = 'utf-8'
         output = null
-    
+
         options['isCode'] = true
         switch lang
           # dream
@@ -238,9 +238,32 @@ module.exports = (env, callback) ->
       (page, callback) =>
         callback null, page
     ], callback
-   
+
+  class HtmlPage extends RobotskirtPage
+
+  HtmlPage.fromFile = (filepath, callback) ->
+
+    async.waterfall [
+      (callback) ->
+        fs.readFile filepath.full, callback
+      (buffer, callback) ->
+        HtmlPage.extractMetadata buffer.toString(), callback
+      (result, callback) =>
+        {markdown, metadata} = result
+        page = new this filepath, metadata, markdown
+        callback null, page
+      (page, callback) =>
+        # page._htmlraw = RobotskirtPage.runMarkdownProcess(env.config, page.markdown)
+        page._htmlraw = page.markdown
+        callback null, page
+      (page, callback) =>
+        callback null, page
+    ], callback
+
   env.registerContentPlugin 'pages', '**/*.*(markdown|mkd|md)', RobotskirtPage
+  env.registerContentPlugin 'pages', '**/*.html', HtmlPage
+
   env.helpers.RobotskirtPage = RobotskirtPage
+  env.helpers.HtmlPage = HtmlPage
 
   callback()
-
