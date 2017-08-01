@@ -81,7 +81,7 @@ assets/support/node_modules/
 
 core
 core.*
-*.html
+#*.html
 *~
 .#*
 \#*\#
