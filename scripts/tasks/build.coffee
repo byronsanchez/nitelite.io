@@ -4,7 +4,7 @@ config = bootstrap.env.config
 
 build = require(config['support']).build
 fs = require 'fs'
-sh = require 'execSync'
+sh = require 'child_process'
 colors = require 'colors'
 
 module.exports = (grunt) ->
@@ -198,7 +198,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask('clean', 'Perform a clean of any generated files', () ->
     console.log "Cleaning #{config['destination']}..."
-    code = sh.run "rm -rf #{config['destination']}"
+    code = sh.execSync "rm -rf #{config['destination']}"
   )
 
   grunt.registerTask('test', 'Build the application and run all tests', () ->

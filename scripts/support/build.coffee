@@ -1,6 +1,6 @@
 root = exports ? this
 
-sh = require 'execSync'
+sh = require 'child_process'
 fs = require 'fs'
 path = require 'path'
 yaml = require 'js-yaml'
@@ -20,14 +20,14 @@ root.build_db = (config) ->
 
     # Only build the database if it does not already exist
     # The path database can always be rebuilt
-    code = sh.run "rm -f #{db_dest}" if db_dir == "path"
+    code = sh.execSync "rm -f #{db_dest}" if db_dir == "path"
 
     if !fs.existsSync(db_dest)
       files = glob.sync(path.join(db_source,  '/sc*'))
       files = files.sort()
 
       for x in files
-        code = sh.run "sqlite3 #{db_dest} < #{x}"
+        code = sh.execSync "sqlite3 #{db_dest} < #{x}"
       console.log "#{db_file} built successfully!".green
     else
       console.log "#{db_file} already exists".yellow
@@ -40,7 +40,9 @@ root.compile_site = (config) ->
   console.log "-------------------------"
   # TODO: If beneficial, use the API to run the build with the environment we 
   # setup so far.
-  code = sh.run "./npm_exec.sh wintersmith build"
+  sh.execSync "echo 'TIME FOR THE BUILD'"
+
+  code = sh.execSync("./npm_exec.sh wintersmith build")
   if code == null || code != 0
     console.log "Website failed to compile. The wintersmith compilation command failed to run.".red
   else
@@ -51,7 +53,7 @@ root.compile_site = (config) ->
   console.log "Removing files from deployment."
   console.log "-------------------------------"
   for dir in config['no_deploy']
-    code = sh.run "rm -rf #{config['destination']}/#{dir}"
+    code = sh.execSync "rm -rf #{config['destination']}/#{dir}"
     console.log "#{config['destination']}/#{dir} removed from deployment."
   console.log "Extra files succesfully removed.".green
 

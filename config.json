@@ -11,7 +11,7 @@
   },
   "baseUrl": "/",
   "editor": "vim",
-  "post_ext": "md",
+  "post_ext": "html",
   "comment_ext": "md",
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
@@ -40,9 +40,6 @@
     "./plugins/wintersmith-articles-helper.coffee",
     "./node_modules/wintersmith-handleize-helper",
     "./plugins/wintersmith-tag-pages.coffee",
-    "./plugins/wintersmith-robotskirt.coffee",
-    "./plugins/comments.coffee",
-    "./plugins/most_popular_articles.coffee",
     "./plugins/related_posts.coffee"
   ],
   "require": {
@@ -93,7 +90,9 @@
     "vendor",
     "scripts",
     "bin",
-    "database"
+    "database",
+    "org",
+    "_posts"
   ]
 }
 

@@ -1,26 +1,27 @@
-# tehpotatoking.com
+* tehpotatoking.com
 
 Personal blog powered by Wintersmith static site generator
 
-## Requirements
+** Requirements
 
-Be sure to have [Node Package Manager (npm)](http://nodejs.org/download/)
-installed. Npm is bundled and installed automatically with Node.js.
-[Ruby 2.0.0](https://www.ruby-lang.org/en/downloads/) is needed as well.
+Be sure to have [[http://nodejs.org/download/][Node Package Manager (npm)]] installed. Npm is bundled and
+installed automatically with NodeJS. [[https://www.ruby-lang.org/en/downloads/][Ruby 2.0.0]] is needed as well.
 
-## Setup
+** Setup
 
 Setting up a buildable project is very simple:
 
-    git clone https://github.com/hackbytes/tehpotatoking.com.git
-    cd tehpotatoking.com
-    ./init.sh
+#+begin_src sh
+git clone https://github.com/hackbytes/tehpotatoking.com.git
+cd tehpotatoking.com
+./init.sh
+#+end_src
 
 Once all necessary dependencies have been installed by the init command,
 you can open up the project in your preferred editor and run builds, perform
 unit tests or anything else!
 
-## Usage
+** Usage
 
 You can use your favorite IDE to run all builds and unit tests. If you prefer
 to use the command line, you can use grunt tasks to run builds and test the
@@ -31,52 +32,74 @@ you need.
 
 To build the website:
 
-    grunt build
+#+begin_src sh
+grunt build
+#+end_src
 
 To build and run both the website and all tests:
 
-    grunt test
+#+begin_src sh
+grunt test
+#+end_src
 
 To build the tests without running them:
 
-    grunt build-tests
+#+begin_src sh
+grunt build-tests
+#+end_src
 
 To run the tests without building them (this assumes you have previously built
 them):
 
-    grunt run-tests
+#+begin_src sh
+grunt run-tests
+#+end_src
 
 To clean all built files:
 
-    grunt clean
+#+begin_src sh
+grunt clean
+#+end_src
 
 To deploy the website to the server:
 
-    grunt deploy
+#+begin_src sh
+grunt deploy
+#+end_src
 
 To bulk update the YAML front-matter of every post
 
-    grunt yaml:key:value
+#+begin_src sh
+grunt yaml:key:value
+#+end_src
 
 To view posts that can be unpublished. Specify a skill or a notebook to narrow 
 down the list.
 
-    grunt publish[:skill][:notebook]
+#+begin_src sh
+grunt publish[:skill][:notebook]
+#+end_src
 
 To publish a post
 
-    grunt publish:skill:notebook:post
+#+begin_src sh
+grunt publish:skill:notebook:post
+#+end_src
 
 To view posts that can be unpublished. Specify a skill or a notebook to narrow 
 down the list.
 
-    grunt publish[:skill][:notebook]
+#+begin_src sh
+grunt publish[:skill][:notebook]
+#+end_src
 
 To unpublish a post
 
-    grunt unpublish:skill:notebook:post
+#+begin_src sh
+grunt unpublish:skill:notebook:post
+#+end_src
 
-## Comments
+** Comments
 
 The comments database is created upon submission of the first comment. The
 following is a list of all available commands for managing comments once the
@@ -84,33 +107,47 @@ database is created.
 
 To pull the comments database from the server:
 
-    grunt comments-pull
+#+begin_src sh
+grunt comments-pull
+#+end_src
 
 To display a list of all comments along with their ids:
 
-    grunt comments-list
+#+begin_src sh
+grunt comments-list
+#+end_src
 
 To view the contents of a comment:
 
-    grunt comments-view:id
+#+begin_src sh
+grunt comments-view:id
+#+end_src
 
 To publish a comment:
 
-    grunt comments-publish:id
+#+begin_src sh
+grunt comments-publish:id
+#+end_src
 
 To unpublish a comment:
 
-    grunt comments-unpublish:id
+#+begin_src sh
+grunt comments-unpublish:id
+#+end_src
 
 To delete a comment:
 
-    grunt comments-delete:id
+#+begin_src sh
+grunt comments-delete:id
+#+end_src
 
 To push the modified database back to the server:
 
-    grunt comments-push
+#+begin_src sh
+grunt comments-push
+#+end_src
 
-## Copyright / License
+** Copyright / License
 
 tehpotatoking.com is Copyright (c) 2014 tehPotatoKing.com, licensed under the 
 GNU GPL v2.0.
