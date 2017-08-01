@@ -40,6 +40,7 @@
     "./plugins/wintersmith-articles-helper.coffee",
     "./node_modules/wintersmith-handleize-helper",
     "./plugins/wintersmith-tag-pages.coffee",
+    "./plugins/wintersmith-robotskirt.coffee",
     "./plugins/related_posts.coffee"
   ],
   "require": {
@@ -85,6 +86,7 @@
   "pygments": true,
   "ignore": [
     "README.md",
+    "README.org",
     "Gruntfile",
     "resources",
     "vendor",

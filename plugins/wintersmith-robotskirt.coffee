@@ -1,5 +1,5 @@
 async = require 'async'
-Robotskirt = require 'robotskirt'
+# Robotskirt = require 'robotskirt'
 fs = require 'fs'
 hljs = require 'highlight.js'
 
@@ -60,9 +60,18 @@ module.exports = (env, callback) ->
       @_hasMore ?= (@_html.length > @_intro.length)
       return @_hasMore
 
-    @runMarkdownProcess: (config, markdown) ->
+    @runHtmlProcess: (config, markdown) ->
         preprocessedMarkdown = RobotskirtPage.preprocess(markdown)
-        renderedHtml = RobotskirtPage.renderMarkdownIntoHtml(config, preprocessedMarkdown)
+        renderedHtml = RobotskirtPage.renderHtmlIntoHtml(config, preprocessedMarkdown)
+        postprocessedMarkdown = RobotskirtPage.postprocess(renderedHtml)
+
+    @runMarkdownProcess: (config, markdown) ->
+        # preprocessedMarkdown = RobotskirtPage.preprocess(markdown)
+        # renderedHtml = RobotskirtPage.renderMarkdownIntoHtml(config, preprocessedMarkdown)
+        # postprocessedMarkdown = RobotskirtPage.postprocess(renderedHtml)
+
+        preprocessedMarkdown = RobotskirtPage.preprocess(markdown)
+        renderedHtml = RobotskirtPage.renderHtmlIntoHtml(config, preprocessedMarkdown)
         postprocessedMarkdown = RobotskirtPage.postprocess(renderedHtml)
 
     @preprocess: (markdown) ->
@@ -72,33 +81,37 @@ module.exports = (env, callback) ->
     @postprocess: (html) ->
       return html
 
-    @renderMarkdownIntoHtml: (config, markdownContent) ->
-
-      extensions = config.robotskirt.extensions or []
-      htmlFlags = config.robotskirt.htmlFlags or []
-      isSmartypantsEnabled = config.robotskirt.smart or false
-
-      robotskirtExtensions = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(extensions)
-      robotskirtHtmlFlags = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(htmlFlags)
-
-      renderer = new Robotskirt.HtmlRenderer(robotskirtHtmlFlags)
-      renderer = RobotskirtPage.defineSyntaxHighlightingForCodeBlocks(renderer, config)
-      markdown = new Robotskirt.Markdown(renderer, robotskirtExtensions)
-      renderedHtml = markdown.render(markdownContent)
-
-      if isSmartypantsEnabled
-        renderedHtml = Robotskirt.smartypantsHtml(renderedHtml)
-
+    @renderHtmlIntoHtml: (config, markdownContent) ->
+      renderedHtml = markdownContent
       return renderedHtml
 
-    @convertConfigurationStringsIntoRobotskirtIDs: (configurationStringObject) ->
+    # @renderMarkdownIntoHtml: (config, markdownContent) ->
+    #
+    #   extensions = config.robotskirt.extensions or []
+    #   htmlFlags = config.robotskirt.htmlFlags or []
+    #   isSmartypantsEnabled = config.robotskirt.smart or false
+    #
+    #   robotskirtExtensions = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(extensions)
+    #   robotskirtHtmlFlags = RobotskirtPage.convertConfigurationStringsIntoRobotskirtIDs(htmlFlags)
+    #
+    #   renderer = new Robotskirt.HtmlRenderer(robotskirtHtmlFlags)
+    #   renderer = RobotskirtPage.defineSyntaxHighlightingForCodeBlocks(renderer, config)
+    #   markdown = new Robotskirt.Markdown(renderer, robotskirtExtensions)
+    #   renderedHtml = markdown.render(markdownContent)
+    #
+    #   if isSmartypantsEnabled
+    #     renderedHtml = Robotskirt.smartypantsHtml(renderedHtml)
+    #
+    #   return renderedHtml
 
-      robotskirtIDs = []
-      for v,k in configurationStringObject
-        uppercaseValue = v.toUpperCase()
-        robotskirtIDs[k] = Robotskirt[uppercaseValue]
-
-      return robotskirtIDs
+    # @convertConfigurationStringsIntoRobotskirtIDs: (configurationStringObject) ->
+    #
+    #   robotskirtIDs = []
+    #   for v,k in configurationStringObject
+    #     uppercaseValue = v.toUpperCase()
+    #     robotskirtIDs[k] = Robotskirt[uppercaseValue]
+    #
+    #   return robotskirtIDs
 
     @defineSyntaxHighlightingForCodeBlocks: (renderer, config) ->
 
@@ -223,6 +236,8 @@ module.exports = (env, callback) ->
 
   RobotskirtPage.fromFile = (filepath, callback) ->
 
+    console.log "MARK DOW NFILE"
+
     async.waterfall [
       (callback) ->
         fs.readFile filepath.full, callback
@@ -243,6 +258,8 @@ module.exports = (env, callback) ->
 
   HtmlPage.fromFile = (filepath, callback) ->
 
+    console.log "HTM LFILE"
+
     async.waterfall [
       (callback) ->
         fs.readFile filepath.full, callback
@@ -253,7 +270,7 @@ module.exports = (env, callback) ->
         page = new this filepath, metadata, markdown
         callback null, page
       (page, callback) =>
-        # page._htmlraw = RobotskirtPage.runMarkdownProcess(env.config, page.markdown)
+        page._htmlraw = RobotskirtPage.runHtmlProcess(env.config, page.markdown)
         page._htmlraw = page.markdown
         callback null, page
       (page, callback) =>
