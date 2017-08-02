@@ -38,15 +38,22 @@ root.compile_site = (config) ->
   console.log "-------------------------"
   console.log "Compiling entire website."
   console.log "-------------------------"
+
   # TODO: If beneficial, use the API to run the build with the environment we 
   # setup so far.
-  sh.execSync "echo 'TIME FOR THE BUILD'"
 
-  code = sh.execSync("./npm_exec.sh wintersmith build")
-  if code == null || code != 0
-    console.log "Website failed to compile. The wintersmith compilation command failed to run.".red
-  else
-    console.log "Website compiled".green
+  try
+    sh.execSync("./npm_exec.sh wintersmith build").toString();
+  catch e
+    #  e.status;//might be 127 in your example
+    # e.message;//has the message
+    # e.stderr;//has your stderr
+    # e.stdout;//has your stdout
+    if e.status == null || e.status != 0
+      console.log "Website failed to compile. The wintersmith compilation command failed to run.".red
+    else
+      console.log "Website compiled".green
+
 
   # Remove all files listed in the no_deploy array.
   console.log "-------------------------------"
