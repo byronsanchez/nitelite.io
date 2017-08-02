@@ -2,12 +2,12 @@
   "deployment": {
     "remote_user": "deployer",
     "remote_port": "1224",
-    "remote_destination": "/srv/www/tehpotatoking.com",
-    "repo": "https://github.com/hackbytes/tehpotatoking.com.git",
-    "repo_branch": "develop",
+    "remote_destination": "/srv/www/nitelite.io",
+    "repo": "https://git.nitelite.io/byronsanchez/nitelite.io/",
+    "repo_branch": "master",
     "remote_path_env": "$PATH:/usr/local/bin:$HOME/.nodejs/bin",
-    "server_staging": "stage.tehpotatoking.com",
-    "server_production": "production.tehpotatoking.com"
+    "server_staging": "stage.nitelite.io",
+    "server_production": "production.nitelite.io"
   },
   "baseUrl": "/",
   "editor": "vim",
@@ -16,12 +16,12 @@
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
   "locals": {
-    "application": "tehpotatoking.com",
-    "url": "http://tehpotatoking.com",
-    "base_url": "tehpotatoking.com",
-    "title": "tehpotatoking.com",
+    "application": "nitelite.io",
+    "url": "https://nitelite.io",
+    "base_url": "nitelite.io",
+    "title": "nitelite.io",
     "subtitle": "Personal blog",
-    "author": "tehPotatoKing",
+    "author": "niteLite",
     "description": "Personal blog",
     "comments_enabled": true,
     "ratings_enabled": true,
@@ -30,7 +30,7 @@
     "related_entries_limit": 5,
     "date_format_post": "dddd, MMMM Do, YYYY",
     "date_format_comment": "MMMM Do, YYYY h:mm A",
-    "email": "byron@hackbytes.com",
+    "email": "byron@byronsanchez.io",
     "gravatar_url": "http://www.gravatar.com/avatar",
     "gravatar_size": 64,
     "gravatar_default": "identicon"
@@ -79,7 +79,6 @@
       "mastery",
       "health",
       "money",
-      "sex",
       "hobby"
     ]
   },
