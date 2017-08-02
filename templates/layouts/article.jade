@@ -110,85 +110,104 @@ block content
   if page.metadata.comments_enabled
     div#comments
 
-      // Titles for each state
-      h2#header-post-comment.comments-header Post a comment
-      h3#header-verify-comment.comments-header.hiddenBox Verify your Comment
-      h3#header-preview-comment.comments-header.hiddenBox Previewing your Comment
+      div#disqus_thread
 
-      // Notices
-      // Success
-      div#comments-open-response-success.alert-box.success.hiddenBox
-        p.comments-open-subtext
-          | Success! Your comment has been submitted and is now pending approval.&nbsp;
-          a(href='javascript:void 0;', onclick='window.location.hash="#comment-form";window.location.reload(false)') Post another comment
+      script.
+        var disqus_config = function () {
+          this.page.url = #{page.url} ;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = #{page.url}; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
 
-      // Error
-      div#comments-open-response-error.alert-box.warning.hiddenBox
+        (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = 'https://nitelite.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
 
-      div#comment-preview.hiddenBox
-        div.comments-content
-          div.comment
-            div#comment-preview-content.comment-content
-              // Place preview content here
+      noscript.
+        Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
 
-            p.comment-footer
-              | Posted by&nbsp;
-              span#comment-preview-author
-              | &nbsp;on&nbsp;
-              span#comment-preview-datetime
 
-      // Notice below the comment preview
-      div#comment-preview-confirmation.hiddenBox.yellowBox
-        p This is only a preview. Your comment has not yet been posted.
-        form#comment-preview-form
-          input(type='submit', name='post', id='comment-confirm-post', value='Submit', class='button')
-          input(type='submit', name='edit', id='comment-edit', value='Edit', class='button')
-          div#previewFormSpinner.hiddenBox
-
-      // The main comment section
-      div#primary-comment-form.comment-form
-        form#comment-form
-          fieldset
-            input(type='hidden', name='post_id', value='#{ page.url }')
-            input(type='hidden', name='return_url', value='#{ page.url }')
-            input(type='hidden', name='skill', value='#{ page.metadata.category}')
-            input(type='hidden', name='notebook', value='#{ page.metadata.notebook}')
-
-            div.comments-open
-              div#comments-open-content.comments-open-content
-
-                // Comment form fields
-
-                div#comments-open-text(style='display: none')
-                  label(for='comment-text')
-                    | Comment&nbsp;
-                    span.form-required(title='This field is required.') *
-                  textarea#comment-text(name='comment', rows='10', cols='30', required)
-                  p.comments-open-subtext
-                    | All comments are held for moderation. Markdown formatting is available.
-
-                div#comments-open-data(style='display: none')
-
-                  // Your information
-                  p
-                    label(for='comment-author') Name
-                    input(type='text', id='comment-author', name='name', size='30', class='grayText', placeholder='Name')
-
-                  p
-                    label(for='comment-email') Email Address
-                    input(type='text', id='comment-email', name='email', size='30', class='grayText', placeholder='test@example.com')
-                    span#comment-email-error.comment-error.hiddenBox Please enter a valid email address
-
-                  p
-                    label(for='comment-url') Web Site URL
-                    input(type='text', id='comment-url', name='link', size='30', class='grayText', placeholder='http://www.example.com')
-                    span#comment-url-error.comment-error.hiddenBox Invalid URL
-
-                div#comments-open-footer.comments-open-footer(style='display: none;')
-                  // Initial button states == disabled
-                  input(type='submit', name='post', id='comment-post-button', value='Submit', class='button', disabled='disabled')
-                  input(type='submit', name='preview', id='comment-preview-button', value='Preview', class='button', disabled='disabled')
-                  div#commentEntryFormSpinner.commentSpinner.hiddenBox
+      // // Titles for each state
+      // h2#header-post-comment.comments-header Post a comment
+      // h3#header-verify-comment.comments-header.hiddenBox Verify your Comment
+      // h3#header-preview-comment.comments-header.hiddenBox Previewing your Comment
+      //
+      // // Notices
+      // // Success
+      // div#comments-open-response-success.alert-box.success.hiddenBox
+      //   p.comments-open-subtext
+      //     | Success! Your comment has been submitted and is now pending approval.&nbsp;
+      //     a(href='javascript:void 0;', onclick='window.location.hash="#comment-form";window.location.reload(false)') Post another comment
+      //
+      // // Error
+      // div#comments-open-response-error.alert-box.warning.hiddenBox
+      //
+      // div#comment-preview.hiddenBox
+      //   div.comments-content
+      //     div.comment
+      //       div#comment-preview-content.comment-content
+      //         // Place preview content here
+      //
+      //       p.comment-footer
+      //         | Posted by&nbsp;
+      //         span#comment-preview-author
+      //         | &nbsp;on&nbsp;
+      //         span#comment-preview-datetime
+      //
+      // // Notice below the comment preview
+      // div#comment-preview-confirmation.hiddenBox.yellowBox
+      //   p This is only a preview. Your comment has not yet been posted.
+      //   form#comment-preview-form
+      //     input(type='submit', name='post', id='comment-confirm-post', value='Submit', class='button')
+      //     input(type='submit', name='edit', id='comment-edit', value='Edit', class='button')
+      //     div#previewFormSpinner.hiddenBox
+      //
+      // // The main comment section
+      // div#primary-comment-form.comment-form
+      //   form#comment-form
+      //     fieldset
+      //       input(type='hidden', name='post_id', value='#{ page.url }')
+      //       input(type='hidden', name='return_url', value='#{ page.url }')
+      //       input(type='hidden', name='skill', value='#{ page.metadata.category}')
+      //       input(type='hidden', name='notebook', value='#{ page.metadata.notebook}')
+      //
+      //       div.comments-open
+      //         div#comments-open-content.comments-open-content
+      //
+      //           // Comment form fields
+      //
+      //           div#comments-open-text(style='display: none')
+      //             label(for='comment-text')
+      //               | Comment&nbsp;
+      //               span.form-required(title='This field is required.') *
+      //             textarea#comment-text(name='comment', rows='10', cols='30', required)
+      //             p.comments-open-subtext
+      //               | All comments are held for moderation. Markdown formatting is available.
+      //
+      //           div#comments-open-data(style='display: none')
+      //
+      //             // Your information
+      //             p
+      //               label(for='comment-author') Name
+      //               input(type='text', id='comment-author', name='name', size='30', class='grayText', placeholder='Name')
+      //
+      //             p
+      //               label(for='comment-email') Email Address
+      //               input(type='text', id='comment-email', name='email', size='30', class='grayText', placeholder='test@example.com')
+      //               span#comment-email-error.comment-error.hiddenBox Please enter a valid email address
+      //
+      //             p
+      //               label(for='comment-url') Web Site URL
+      //               input(type='text', id='comment-url', name='link', size='30', class='grayText', placeholder='http://www.example.com')
+      //               span#comment-url-error.comment-error.hiddenBox Invalid URL
+      //
+      //           div#comments-open-footer.comments-open-footer(style='display: none;')
+      //             // Initial button states == disabled
+      //             input(type='submit', name='post', id='comment-post-button', value='Submit', class='button', disabled='disabled')
+      //             input(type='submit', name='preview', id='comment-preview-button', value='Preview', class='button', disabled='disabled')
+      //             div#commentEntryFormSpinner.commentSpinner.hiddenBox
 
       noscript
         p

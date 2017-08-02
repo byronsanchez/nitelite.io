@@ -45,7 +45,8 @@ config['vendor'] = path.join(config['source'], "vendor")
 config['assets'] = path.join(config['source'], "assets")
 config['tests'] = path.join(config['source'], "tests")
 config['database'] = path.join(config['assets'], "database")
-config['database_scripts'] = {"comments": "comments.db", "path": "path.db"}
+# config['database_scripts'] = {"comments": "comments.db", "path": "path.db"}
+config['database_scripts'] = {"path": "path.db"}
 config['database_output'] = path.join(config['database'], "bin")
 # Files to remove from compiled source.
 config['no_deploy'] = []
