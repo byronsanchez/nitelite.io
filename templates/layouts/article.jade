@@ -59,51 +59,54 @@ block content
               a(rel='next', href='#{ nextUrl }') #{ nextLabel }&nbsp;&raquo;
 
   // Comments Count
-  - var comments_count = 0
-  if (page.comments)
-    - comments_count = _.keys(page.comments).length
-    
-  case comments_count
-    when 0
-      div.comments-count No Comments
-    when 1
-      div.comments-count 1 Comment
-    default
-      div.comments-count #{ comments_count } Comments
+  // - var comments_count = 0
+  // if (page.comments)
+  //   - comments_count = _.keys(page.comments).length
+
+  // case comments_count
+  //   when 0
+  //     div.comments-count No Comments
+  //   when 1
+  //     div.comments-count 1 Comment
+  //   default
+  //     div.comments-count #{ comments_count } Comments
+
+  // if page.metadata.comments_enabled
+  //   a(href="https://nitelite.io#{page.url}#disqus_thread") No Comments
 
   // Comments
-  if page.comments
-    - var i = 0
-    for c in page.comments
-      - var permalink = c.metadata.id;
-      - var content = c.html
-      - var row = i % 2 ? 'even' : 'odd'
-      - i = i + 1;
-
-      div(class='comments-body #{ env.helpers.handleize(c.metadata.name) } #{ row }', id='#{ c.metadata.id }')
-
-        i.l
-
-        // Gravatar 
-        span.avatar
-          img(src='#{ locals.gravatar_url }/#{ c.metadata.gravatar_hash }?s=#{ locals.gravatar_size }&d=#{ locals.gravatar_default }')
-
-        // Metadata
-        div.comments-wrapper
-          div.comments-box
-            div.comments-meta
-              if c.metadata.link && c.metadata.link != ''
-                p.comment-name
-                  a(rel='nofollow', target='_blank', title='#{ c.metadata.link }', href='#{ c.metadata.link }') #{ c.metadata.name }
-              else
-                p.comment-name #{ c.metadata.name }
-
-              p.comment-date
-                !{ moment.utc(c.metadata.date).format(locals.date_format_comment) }&nbsp;|&nbsp;
-                a(href='#{ page.url }##{ permalink }') Permalink
-
-            // CONTENT
-            | !{content}
+  // if page.comments
+  //   - var i = 0
+  //   for c in page.comments
+  //     - var permalink = c.metadata.id;
+  //     - var content = c.html
+  //     - var row = i % 2 ? 'even' : 'odd'
+  //     - i = i + 1;
+  //
+  //     div(class='comments-body #{ env.helpers.handleize(c.metadata.name) } #{ row }', id='#{ c.metadata.id }')
+  //
+  //       i.l
+  //
+  //       // Gravatar 
+  //       span.avatar
+  //         img(src='#{ locals.gravatar_url }/#{ c.metadata.gravatar_hash }?s=#{ locals.gravatar_size }&d=#{ locals.gravatar_default }')
+  //
+  //       // Metadata
+  //       div.comments-wrapper
+  //         div.comments-box
+  //           div.comments-meta
+  //             if c.metadata.link && c.metadata.link != ''
+  //               p.comment-name
+  //                 a(rel='nofollow', target='_blank', title='#{ c.metadata.link }', href='#{ c.metadata.link }') #{ c.metadata.name }
+  //             else
+  //               p.comment-name #{ c.metadata.name }
+  //
+  //             p.comment-date
+  //               !{ moment.utc(c.metadata.date).format(locals.date_format_comment) }&nbsp;|&nbsp;
+  //               a(href='#{ page.url }##{ permalink }') Permalink
+  //
+  //           // CONTENT
+  //           | !{content}
 
 
   // Comments Form

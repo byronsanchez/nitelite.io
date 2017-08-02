@@ -41,18 +41,21 @@ block content
           div.metadata
             p.more-link.index
               // Get comment data
-              - var comments_count = 0
-              if article.comments
-                - comments_count = _.keys(article.comments).length
+              // - var comments_count = 0
+              // if article.comments
+              //   - comments_count = _.keys(article.comments).length
 
-              a(href='#{ article.url }#comments')
-                case comments_count
-                  when 0
-                    span.comment-count No Comments
-                  when 1
-                    span.comment-count 1 Comment
-                  default
-                    span.comment-count #{ comments_count } Comments
+              // a(href='#{ article.url }#comments')
+                // case comments_count
+                //   when 0
+                //     span.comment-count No Comments
+                //   when 1
+                //     span.comment-count 1 Comment
+                //   default
+                //     span.comment-count #{ comments_count } Comments
+
+              a(href='https://nitelite.io#{ article.url }#disqus_thread')
+                span.comment-count No Comments
               | &nbsp;&nbsp;|&nbsp;&nbsp;
               a(href=article.url) View Entry &#8594;
   else
