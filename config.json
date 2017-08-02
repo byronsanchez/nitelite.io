@@ -6,8 +6,7 @@
     "repo": "https://git.nitelite.io/byronsanchez/nitelite.io/",
     "repo_branch": "master",
     "remote_path_env": "$PATH:/usr/local/bin:$HOME/.nodejs/bin",
-    "server_staging": "stage.nitelite.io",
-    "server_production": "production.nitelite.io"
+    "server": "production.nitelite.io"
   },
   "baseUrl": "/",
   "editor": "vim",

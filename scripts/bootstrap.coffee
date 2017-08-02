@@ -29,8 +29,7 @@ deployment = config.deployment
 
 config['source'] = root.env['workDir']
 config['destination'] = config['output']
-deployment['connection_production'] = "#{deployment['remote_user']}@#{deployment['server_production']}"
-deployment['connection_staging'] = "#{deployment['remote_user']}@#{deployment['server_staging']}"
+deployment['connection'] = "#{deployment['remote_user']}@#{deployment['server']}"
 deployment['remote_current_path'] = path.join(deployment['remote_destination'], "current/build")
 deployment['remote_assets'] = path.join(deployment['remote_current_path'], "assets")
 deployment['remote_database_output'] = "/var/lib/nitelite/webserver/nitelite.io/database"
