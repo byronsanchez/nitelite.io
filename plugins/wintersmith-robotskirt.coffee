@@ -43,7 +43,7 @@ module.exports = (env, callback) ->
 
     getIntro: (base) ->
       html = @getHtml(base)
-      cutoffs = ['#+MORE', '<!--more-->', '<span class="more']
+      cutoffs = ['<!--more-->', '<span class="more']
       idx = Infinity
       for cutoff in cutoffs
         i = html.indexOf cutoff
