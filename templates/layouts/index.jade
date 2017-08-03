@@ -54,7 +54,7 @@ block content
                 //   default
                 //     span.comment-count #{ comments_count } Comments
 
-              a(href='https://nitelite.io#{ article.url }#disqus_thread')
+              a(href='#{locals.url}#{ article.url }#disqus_thread')
                 span.comment-count No Comments
               | &nbsp;&nbsp;|&nbsp;&nbsp;
               a(href=article.url) View Entry &#8594;

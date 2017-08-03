@@ -72,7 +72,7 @@ block content
   //     div.comments-count #{ comments_count } Comments
 
   // if page.metadata.comments_enabled
-  //   a(href="https://nitelite.io#{page.url}#disqus_thread") No Comments
+  //   a(href="#{locals.url}#{page.url}#disqus_thread") No Comments
 
   // Comments
   // if page.comments
@@ -117,8 +117,8 @@ block content
 
       script.
         var disqus_config = function () {
-          this.page.url = "https://nitelite.io#{page.url}" ;  // Replace PAGE_URL with your page's canonical URL variable
-          this.page.identifier = "https://nitelite.io#{page.url}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+          this.page.url = "#{locals.url}#{page.url}" ;  // Replace PAGE_URL with your page's canonical URL variable
+          this.page.identifier = "#{page.metadata.id}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
