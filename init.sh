@@ -6,12 +6,6 @@ command -v npm >/dev/null 2>&1 || {
   exit 1;
 }
 
-# ruby dependency validation
-command -v gem >/dev/null 2>&1 || {
-  printf >&2 "Please install Ruby\n";
-  exit 2;
-}
-
 command -v grunt >/dev/null 2>&1 || {
   # NOTE: Make sure .npmrc has a prefix of ~/.npm or that the npm node_modules 
   # dir is writable by the user. Alternatively, you will have to sudo install 
@@ -26,16 +20,9 @@ command -v grunt >/dev/null 2>&1 || {
   fi
 }
 
-command -v bundle >/dev/null 2>&1 || {
-  printf >&2 "Installing bundler...\n";
-  gem install bundler
-  gem update rdoc
-}
-
 # Initialization to setup a buildable application
 npm install
 # set the linker to g++ so the rebuild works on NFS shares
 LINK=g++ npm rebuild
 ./node_modules/.bin/bower install
-bundle install
 
