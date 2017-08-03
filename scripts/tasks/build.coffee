@@ -15,7 +15,7 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-smushit"
-  grunt.loadNpmTasks "grunt-contrib-compass"
+  grunt.loadNpmTasks "grunt-sass"
   grunt.loadNpmTasks "grunt-contrib-coffee"
   grunt.loadNpmTasks "grunt-contrib-concat"
   grunt.loadNpmTasks "grunt-contrib-copy"
@@ -42,24 +42,29 @@ module.exports = (grunt) ->
           'contents/js/foundation.min.js': ['bower_components/foundation/js/foundation.min.js'],
           'contents/js/fastclick.min.js': ['bower_components/fastclick/lib/fastclick.js']
 
-    compass:
+    sass:
       dist:
         options:
-          sassDir: 'sass'
-          cssDir: 'contents/css'
-          httpPath: '/'
           outputStyle: 'compressed'
-          environment: 'production'
-          noLineComments: true
-          bundleExec: true
+          sourceComments: false
+        files: [{
+          expand: true
+          flatten: true
+          src: ['sass/main.scss', 'sass/ie9.scss', 'sass/print.scss']
+          dest: 'contents/css'
+          ext: '.css'
+        }]
       dev:
         options:
-          sassDir: 'sass'
-          cssDir: 'contents/css'
-          httpPath: '/'
           outputStyle: 'compressed'
-          noLineComments: true
-          bundleExec: true
+          sourceComments: false
+        files: [{
+          expand: true
+          flatten: true
+          src: ['sass/main.scss', 'sass/ie9.scss', 'sass/print.scss']
+          dest: 'contents/css'
+          ext: '.css'
+        }]
 
     # Coffeescript
     coffee:
@@ -213,7 +218,14 @@ module.exports = (grunt) ->
     # TODO: invoke tests
   )
 
-  grunt.registerTask 'build', ['uglify', 'compass:dist', 'copy:precompile', 'coffee:join', 'concat', 'wintersmith-build', 'shell:npminstall', 'copy:postcompile', 'shell:permissions']
+  grunt.registerTask('rebuild', 'Build any bindings used by the app', () ->
+    console.log "Compiling all bindings..."
+    code = sh.execSync "npm rebuild --force"
+
+    console.log "Compilation of bindings complete!".green
+  )
+
+  grunt.registerTask 'build', ['uglify', 'sass:dist', 'copy:precompile', 'coffee:join', 'concat', 'wintersmith-build', 'shell:npminstall', 'copy:postcompile', 'shell:permissions']
 
   grunt.registerTask('default', 'build')
 

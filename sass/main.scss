@@ -1,7 +1,8 @@
+
+// NOTE: mixin clearfix is provided by foundation
+
 @import "variables";
 @import "settings";
-@import "compass/css3";
-@import "compass/utilities/general/clearfix";
 @import "../bower_components/foundation/scss/normalize";
 @import "../bower_components/foundation-icons/foundation_icons_general/sass/general_foundicons";
 @import "../bower_components/foundation/scss/foundation";
