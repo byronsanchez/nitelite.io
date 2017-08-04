@@ -37,7 +37,7 @@
   "plugins": [
     "./plugins/paginator.coffee",
     "./plugins/wintersmith-articles-helper.coffee",
-    "./node_modules/wintersmith-handleize-helper",
+    "./plugins/wintersmith-handleize-helper",
     "./plugins/wintersmith-tag-pages.coffee",
     "./plugins/wintersmith-robotskirt.coffee",
     "./plugins/related_posts.coffee"
