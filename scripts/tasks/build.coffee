@@ -43,10 +43,11 @@ module.exports = (grunt) ->
           'contents/js/fastclick.min.js': ['bower_components/fastclick/lib/fastclick.js']
 
     sass:
+      options:
+        includePaths: ['bower_components/foundation/scss']
       dist:
         options:
-          outputStyle: 'compressed'
-          sourceComments: false
+          outputStyle: 'expanded'
         files: [{
           expand: true
           flatten: true
@@ -54,17 +55,8 @@ module.exports = (grunt) ->
           dest: 'contents/css'
           ext: '.css'
         }]
-      dev:
-        options:
-          outputStyle: 'compressed'
-          sourceComments: false
-        files: [{
-          expand: true
-          flatten: true
-          src: ['sass/main.scss', 'sass/ie9.scss', 'sass/print.scss']
-          dest: 'contents/css'
-          ext: '.css'
-        }]
+        # files: 
+        #   'contents/css/main.css': 'sass/main.scss'
 
     # Coffeescript
     coffee:
