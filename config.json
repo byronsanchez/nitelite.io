@@ -90,9 +90,7 @@
     "vendor",
     "scripts",
     "bin",
-    "database",
-    "org",
-    "_posts"
+    "database"
   ]
 }
 
