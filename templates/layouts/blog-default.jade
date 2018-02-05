@@ -49,21 +49,22 @@ html(class='no-js')
           // About Me
           div.side
             div.about-me.clearfix
-              img(src='http://www.gravatar.com/avatar/493f071079d7dc98b11789d18e1c0799.png', title='niteLite\'s avatar', alt='niteLite\'s avatar', class='profile')
+              img(src='https://www.gravatar.com/avatar/9277d1ec66f787e29b338f06c1ab87fd.png', title='niteLite\'s avatar', alt='niteLite\'s avatar', class='profile')
               include ../includes/about
 
             div.social-links.clearfix
-              a(href='https://youtube.com/user/tehPotatoKing')
+              a(href='https://soundcloud.com/byronsanchez')
+                div.soundcloud
+                  img(src='/img/soundcloud-icon.png', alt='soundcloud icon').social-icon
+              a(href='https://www.youtube.com/channel/UCWcE6wQ6oM6ZXPtra2oxwWA')
                 div.youtube
                   img(src='/img/youtube-icon.png', alt='youtube icon').social-icon
-              div.facebook
-                img(src='/img/facebook-icon.png', alt='facebook icon').social-icon
               a(href='https://twitter.com/byronsanchez')
                 div.twitter
                   img(src='/img/twitter-icon.png', alt='twitter icon').social-icon
-              a(href='https://plus.google.com/u/0/b/113250549473453821044/113250549473453821044')
-                div.google
-                  img(src='/img/gplus-icon.png', alt='google plus icon').social-icon
+              a(href='https://www.facebook.com/ByronSanchezMusic/')
+                div.facebook
+                  img(src='/img/facebook-icon.png', alt='facebook icon').social-icon
 
           if most_popular_articles
             div.side
