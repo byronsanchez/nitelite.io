@@ -77,6 +77,10 @@ hr {
   border-bottom: 1px solid white;
 }
 
+div.center {
+  text-align: center;
+}
+
 blockquote {
   margin:1.0rem;
   background: $sidebar-background-color;
@@ -1258,3 +1262,5 @@ p.license {
   -moz-box-sizing:content-box !important;
   box-sizing:content-box !important;
 }
+
+
