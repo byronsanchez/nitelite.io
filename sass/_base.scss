@@ -456,6 +456,11 @@ h3.legend {
   padding-right: 0.5rem;
 }
 
+.side .mailing-list-description {
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+
 .profile {
   margin: 0 1.25rem 0 0;
   width: 100px;
@@ -531,6 +536,11 @@ img.social-icon {
   padding: 1rem;
 }
 
+.mailing-list-label {
+  background: $mailing-list-box-color;
+  //margin-bottom: 0.25rem;
+}
+
 .ratings-label {
   background: $rating-box-color;
   //margin-bottom: 0.25rem;
@@ -556,6 +566,40 @@ img.social-icon {
 
 h3.side-label {
   color: $hero-text-color;
+}
+
+.side .mailing-list {
+  background: $mailing-list-box-color;
+  padding-bottom: 1.25rem;
+  color: $hero-text-color;
+}
+
+.side .mailing-list a {
+  color: $hero-text-color;
+}
+
+
+// Mailing list customizations for mailing-list-box
+#mc_embed_signup {
+  text-align: center;
+}
+
+#mc_embed_signup form {
+  padding: 1rem;
+}
+
+#mc_embed_signup .mc-field-group {
+  width: 100%;
+}
+
+#mc_embed_signup .mc-field-group label {
+  text-align: left;
+  color: $hero-text-color;
+  font-weight: normal;
+}
+
+#mc_embed_signup .mc-field-group input.email {
+  margin: 0 0 1.25rem 0;
 }
 
 .side .ratings {

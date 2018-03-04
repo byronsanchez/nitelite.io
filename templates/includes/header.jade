@@ -32,8 +32,7 @@ head
     |   rel="stylesheet" type="text/css" />
     | <![endif]-->
 
-    link(rel='stylesheet', href='/css/print.css', media='print', 
-    type='text/css')
+    link(rel='stylesheet', href='/css/print.css', media='print', type='text/css')
 
     link(rel='alternate', href='https://feeds.nitelite.io/nitelite/', type='application/rss+xml', title=description)
 
@@ -47,6 +46,11 @@ head
     // Text
     link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic')
 
+    // Mailing List
+    //link(href='//cdn-images.mailchimp.com/embedcode/classic-10_7.css', rel='stylesheet', type='text/css')
+    // style(type='text/css').
+    //   #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+
     // Favicons
     link(rel='shortcut icon', href='/favicon.ico')
     link(rel='apple-touch-icon', href='/touch-icon-iphone-precomposed.png')
@@ -56,4 +60,3 @@ head
 
     include analytics
     include search
-
