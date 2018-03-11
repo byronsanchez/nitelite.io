@@ -292,17 +292,27 @@ else if ($_POST["submit"] == "post" || $_POST["submit"] == "preview") {
       $value = build_form_string($data);
       //      $db_result = db_insert($value);
 
-      $to = 'byron@byronsanchez.io'; 
-      $from = $data['email']; 
-      $subject ='niteLite.io Contact Form';
-      $name = $data['name']; 
-      $message = $value;
+      $to = 'byron@nitelite.io';
+      $from = $data['email'];
+      $subject ='[niteLite.io]: ' . $data['id'] . ' - ' . $data['name'] . ' <' . $data['email'] . '>';
+      $name = $data['name'];
+
+      $message = $data['comment'] . "\r\n";
+
+      $message .= "\r\n";
+      $message .= "---\r\n";
+      // $message .= "\r\n";
+      $message .= "Name: " . $data['name'] . "\r\n";
+      $message .= "Email: " . $data['email'] . "\r\n";
+      $message .= "Link: " . $data['link'] . "\r\n";
+      $message .= "Date: " . $data['date'] . "\r\n";
+      $message .= "ID: " . $data['id'] . "\r\n";
 
       $headers = "MIME-Version: 1.0" . "\r\n";
-      $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+      $headers .= "Content-type:text/plain;charset=UTF-8" . "\r\n";
       $headers .= "To: {$to}\r\n";
       $headers .= "From: {$name} <{$from}>\r\n";
-      $headers .= "Reply-To: <{$to}>\r\n";
+      $headers .= "Reply-To: <{$from}>\r\n";
       $headers .= "Subject: {$subject}\r\n";
       $headers .= "X-Mailer: PHP/".phpversion()."\r\n";
 
