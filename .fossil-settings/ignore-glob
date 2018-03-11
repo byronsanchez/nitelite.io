@@ -106,7 +106,8 @@ lib/
 # Ignore binary files
 
 data/
-assets/
+*.sql
+assets/database/
 
 # Ignore cloud drive symlinks (dropbox, icloud, etc.)
 public/

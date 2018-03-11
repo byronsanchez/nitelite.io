@@ -1,0 +1,16 @@
+{
+  "author": "niteLite (https://niteLite.io)",
+  "name": "niteLite",
+  "description": "Personal Blog",
+  "version": "1.0.0",
+  "homepage": "https://niteLite.io",
+  "repository": {
+    "type": "git",
+    "repository": "none"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.x",
+    "robotskirt": "~2.7.x",
+    "highlight.js": "~7.5.x"
+  }
+}
