@@ -40,7 +40,8 @@
     "./plugins/wintersmith-handleize-helper",
     "./plugins/wintersmith-tag-pages.coffee",
     "./plugins/wintersmith-robotskirt.coffee",
-    "./plugins/related_posts.coffee"
+    "./plugins/related_posts.coffee",
+    "./node_modules/wintersmith-webpack-babel"
   ],
   "require": {
     "moment": "moment",
