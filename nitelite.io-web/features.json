@@ -20,7 +20,7 @@
             "baseUrl": "https://nitelite.io/",
             "features": {
                 "enableComments": true
-            },
+            }
        }
     }
 }

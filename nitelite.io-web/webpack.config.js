@@ -18,6 +18,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var pkg = require('./package.json');
 var path = require("path");
+var coffee = require("coffee-loader");
 
 var environment;
 var environmentConfig;
@@ -28,9 +29,18 @@ if (process.env.ENVIRONMENT) {
 else {
 	environmentConfig = require('./environment.json');
 	environment = environmentConfig['environment'];
+
+	if (!environment) {
+		environment = process.env.NODE_ENV;
+	}
 }
 
 console.log("Environment: " + environment);
+
+var extractSass = new ExtractTextPlugin({
+	filename: "[name].css"
+	//disable: environment === "development"
+});
 
 var allEnvironmentFeatures = require('./features.json');
 var features = allEnvironmentFeatures[environment].config;
@@ -39,6 +49,7 @@ var features = allEnvironmentFeatures[environment].config;
  * Env
  * Get npm lifecycle event to identify the environment
  */
+
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch';
 var isProd = ENV === 'build';
@@ -122,88 +133,46 @@ module.exports = function makeWebpackConfig() {
 
 	// Initialize module
 	config.module = {
-		preLoaders: [],
-		loaders: [
+		rules: [
 			{
 				test: /\.json$/,
-				loader: "json"
+				use: "json-loader"
+			},
+			{
+				test: /\.css$/,
+				loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader'),
+			},
+			{
+				test: /\.scss$/,
+				use: extractSass.extract({
+					use: [{
+						loader: "css-loader?sourceMap" // translates CSS into CommonJS
+					}, {
+						loader: "sass-loader" // compiles Sass to CSS
+					}],
+					// use style-loader in development
+					fallback: "style-loader"
+				})
 			},
 
-			// {
-			//
-			// ES6
-			//
-
-			// JS LOADER
-			// Reference: https://github.com/babel/babel-loader
-			// Transpile .js files using babel-loader
-			// Compiles ES6 and ES7 into ES5 code
-			// test: /\.js$/,
-			// loader: 'babel',
-			// exclude: /node_modules/
-
-
-			//
-			// ES5
-			//
-
-			// JS LOADER
-			// Reference: https://github.com/babel/raw-loader
-			// Loads JS
-			//   test: /\.js$/,
-			//   loader: 'ts-loader',
-			//   exclude: /node_modules/
+			//  {
+			//    test: /\.scss$/,
+			//    loader: isTest ? 'null' : ExtractTextPlugin.extract(
+			//         'style-loader', // activate source maps via loader query
+			//         'css-loader?sourceMap!' +
+			//         'sass-loader?sourceMap'
+			//     ),
 			// },
 			{
-				// CSS LOADER
-				// Reference: https://github.com/webpack/css-loader
-				// Allow loading css through js
-				//
-				// Reference: https://github.com/postcss/postcss-loader
-				// Postprocess your css with PostCSS plugins
-				test: /\.css$/,
-				// Reference: https://github.com/webpack/extract-text-webpack-plugin
-				// Extract css files in production builds
-				//
-				// Reference: https://github.com/webpack/style-loader
-				// Use style-loader in development.
-				loader: isTest ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss'),
-			}, {
-				// SASS LOADER
-				// Reference: https://github.com/webpack/less-loader
-				// Allow loading css through js
-				//
-				// Reference: https://github.com/postcss/postcss-loader
-				// Postprocess your css with PostCSS plugins
-        test: /\.scss$/,
-				// Reference: https://github.com/webpack/extract-text-webpack-plugin
-				// Extract css files in production builds
-				//
-				// Reference: https://github.com/webpack/style-loader
-				// Use style-loader in development.
-				//loader: isTest ? 'null' : ExtractTextPlugin.extract('style', 'css?sourceMap!postcss'),
-				//loader: 'style!css!less',
-				loader: isTest ? 'null' : ExtractTextPlugin.extract(
-					'style', // activate source maps via loader query
-					'css?sourceMap!' +
-					'sass?sourceMap'
-				),
-			}, {
-				// ASSET LOADER
-				// Reference: https://github.com/webpack/file-loader
-				// Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
-				// Rename the file using the asset hash
-				// Pass along the updated reference to your code
-				// You can add here any file extension you want to get copied to your output
 				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-				loader: 'file',
+				use: 'file-loader',
 			}, {
-				// HTML LOADER
-				// Reference: https://github.com/webpack/raw-loader
-				// Allow loading html through js
 				test: /\.html$/,
-				loader: 'raw',
-			}]
+				use: 'raw-loader',
+			}, {
+				test: /\.coffee$/,
+				use: 'coffee-loader',
+			}],
 	};
 
 	// ISPARTA LOADER
@@ -226,11 +195,11 @@ module.exports = function makeWebpackConfig() {
 	 * Reference: https://github.com/postcss/autoprefixer-core
 	 * Add vendor prefixes to your css
 	 */
-	config.postcss = [
-		autoprefixer({
-			browsers: ['last 2 version']
-		})
-	];
+	// config.postcss = [
+	//     autoprefixer({
+	//         browsers: ['last 2 version']
+	//     })
+	// ];
 
 	/**
 	 * Plugins
@@ -261,14 +230,16 @@ module.exports = function makeWebpackConfig() {
 		// Render index.html
 		config.plugins.push(
 			//new HtmlWebpackPlugin({
-				//template: './path/to/entry/point/index.html',
-				//inject: 'body'
+			//template: './path/to/entry/point/index.html',
+			//inject: 'body'
 			//}),
+
+			extractSass
 
 			// Reference: https://github.com/webpack/extract-text-webpack-plugin
 			// Extract css files
 			// Disabled when in test mode or not in build mode
-			new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
+			//new ExtractTextPlugin('[name].[hash].css', {disable: !isProd})
 		)
 	}
 
@@ -293,7 +264,7 @@ module.exports = function makeWebpackConfig() {
 
 			// Copy assets from the public folder
 			// Reference: https://github.com/kevlened/copy-webpack-plugin
-      // TODO: Implement this
+			// TODO: Implement this
 			new CopyWebpackPlugin([{
 				from: __dirname + '/path/to/folder/with/assets'
 			}, {
@@ -315,7 +286,7 @@ module.exports = function makeWebpackConfig() {
 	// Alias for module references. Needed in case a dependency incorrectly
 	// declares their own dependencies.
 	config.resolve = {
-		extensions: ['', '.js'],
+		extensions: ['*', '.js'],
 		alias: {
 			spin: 'spin.js'
 		}

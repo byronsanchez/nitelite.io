@@ -41,7 +41,7 @@
     "./plugins/wintersmith-tag-pages.coffee",
     "./plugins/wintersmith-robotskirt.coffee",
     "./plugins/related_posts.coffee",
-    "./node_modules/wintersmith-webpack-babel"
+    "./plugins/wintersmith-webpack.coffee"
   ],
   "require": {
     "moment": "moment",
