@@ -28,7 +28,6 @@ module.exports = (grunt) ->
 				options:
 					action: "preview"
 
-
 # Concatenation
 		watch:
 			files: ['config.json', 'contents/**/*.html', 'contents/**/*.md', 'plugins/*', 'contents/**/*.scss', 'contents/**/*.coffee', 'contents/**/*.js', 'templates/**/*.jade']

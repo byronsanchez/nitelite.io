@@ -6,9 +6,9 @@
   "homepage": "https://niteLite.io",
   "private": true,
   "scripts": {
-    "build": "npm run build-db && npm run build-site",
-    "build-site": "wintersmith build --clean",
-    "build-db": "grunt build-db",
+    "build": "npm run build:db && npm run build:site",
+    "build:site": "wintersmith build --clean",
+    "build:db": "grunt build-db",
     "clean": "rm -rf ./build",
     "lint": "",
     "preview": "wintersmith preview",
