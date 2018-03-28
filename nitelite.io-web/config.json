@@ -82,10 +82,6 @@
     "README.md",
     "README.org",
     "Gruntfile",
-    "resources",
-    "vendor",
-    "bin",
-    "database"
   ]
 }
 
