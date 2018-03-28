@@ -149,38 +149,51 @@ module.exports = function makeWebpackConfig() {
 				test: /\.css$/,
 				loader: isTest ? 'null' : extractCSS.extract({
 					use: [{
-						loader: "css-loader?sourceMap!"
+						loader: "css-loader",
+						options: {
+							autoprefixer: false,
+							zindex: false,
+							sourceMap: true
+						}
 					}, {
-						loader: "postcss"
+						loader: "postcss-loader",
+						options: {
+							sourceMap: true
+						}
 					}],
 					// use style-loader in development
-					fallback: "style-loader" // activate source maps via loader query
+					fallback: "style-loader"
 				})
 			},
 			{
 				test: /\.scss$/,
-				use: isTest? 'null' : extractCSS.extract({
+				use: isTest ? 'null' : extractCSS.extract({
 					use: [{
 						//loader: "css-loader?sourceMap!",
-						loader: "css-loader"
-						// options: {
-						// 	autoprefixer: false,
-						// 	zindex: false,
-						// 	sourceMap: true,
-						// },
-					},
-					// {
-					// 	loader: "postcss"
-					// }
-					// ,
-						{
-							loader: "resolve-url-loader"
-						},
-					{
-						loader: "sass-loader?sourceMap"
+						loader: "css-loader",
+						options: {
+							autoprefixer: false,
+							zindex: false,
+							sourceMap: true
+						}
+					}, {
+						loader: "postcss-loader",
+						options: {
+							sourceMap: true
+						}
+					}, {
+						loader: "resolve-url-loader",
+						options: {
+							sourceMap: true
+						}
+					}, {
+						loader: "sass-loader?sourceMap",
+						options: {
+							sourceMap: true
+						}
 					}],
 					// use style-loader in development
-					fallback: "style-loader" // activate source maps via loader query
+					fallback: "style-loader"
 				})
 			},
 			{
@@ -209,17 +222,6 @@ module.exports = function makeWebpackConfig() {
 			loader: 'isparta-instrumenter'
 		})
 	}
-
-	/**
-	 * PostCSS
-	 * Reference: https://github.com/postcss/autoprefixer-core
-	 * Add vendor prefixes to your css
-	 */
-	// config.postcss = [
-	//     autoprefixer({
-	//         browsers: ['last 2 version']
-	//     })
-	// ];
 
 	/**
 	 * Plugins
