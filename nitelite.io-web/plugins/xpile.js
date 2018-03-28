@@ -87,7 +87,6 @@ module.exports = function xpile(entry, outFileName, callback) {
 			throw err;
 		}
 
-
 		if (stats.compilation.errors && stats.compilation.errors.length) {
 			stats.compilation.errors.forEach(function (name, e) {
 				console.error("\n +-+-+ webpack compile error:", name, e, "\n");
@@ -104,8 +103,8 @@ module.exports = function xpile(entry, outFileName, callback) {
 
 			// copy to contents for `wintersmith preview` purposes
 			fs.copySync(
-				path.resolve("build", "scripts", outFileName),
-				path.resolve("contents", "scripts", outFileName)
+				path.resolve("build", "scripts"),
+				path.resolve("contents", "scripts")
 			);
 		} catch (err) {
 			console.error(err);

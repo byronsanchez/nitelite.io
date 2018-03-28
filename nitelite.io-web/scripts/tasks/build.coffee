@@ -23,24 +23,22 @@ module.exports = (grunt) ->
 		nl: config
 
 		wintersmith:
-      local: {},
-      preview:
-        options:
-          action: "preview"
+			local: {},
+			preview:
+				options:
+					action: "preview"
 
 
-    # Concatenation
+# Concatenation
 		watch:
-		  files: ['config.json', 'contents/**/*.html', 'contents/**/*.md', 'plugins/*', 'contents/sass/*.scss', 'templates/*.jade'],
-		  tasks: ['build-db', 'wintersmith:local']
+			files: ['config.json', 'contents/**/*.html', 'contents/**/*.md', 'plugins/*', 'contents/**/*.scss', 'contents/**/*.coffee', 'contents/**/*.js', 'templates/**/*.jade']
+			tasks: ['build-db', 'wintersmith:local']
 
 	grunt.registerTask('build-db', 'Build the sqlite databases used by the site', () ->
 		build.build_db(config)
 
 		console.log "SQLite databases compiled!".green
 	)
-
-	grunt.registerTask 'build', ['build-db']
 
 	grunt.registerTask('default', 'build')
 
