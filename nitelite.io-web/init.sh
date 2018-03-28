@@ -24,5 +24,4 @@ command -v grunt >/dev/null 2>&1 || {
 npm install
 # set the linker to g++ so the rebuild works on NFS shares
 LINK=g++ npm rebuild
-./node_modules/.bin/bower install
 
