@@ -37,7 +37,7 @@ else {
 
 console.log("Environment: " + environment);
 
-var extractSass = new ExtractTextPlugin({
+var extractCSS = new ExtractTextPlugin({
 	filename: "[name].css"
 	//disable: environment === "development"
 });
@@ -140,29 +140,28 @@ module.exports = function makeWebpackConfig() {
 			},
 			{
 				test: /\.css$/,
-				loader: isTest ? 'null' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader'),
+				loader: isTest ? 'null' : extractCSS.extract({
+					use: [{
+						loader: "css-loader?sourceMap!"
+					}, {
+						loader: "postcss"
+					}],
+					// use style-loader in development
+					fallback: "style-loader" // activate source maps via loader query
+				})
 			},
 			{
 				test: /\.scss$/,
-				use: extractSass.extract({
+				use: isTest? 'null' : extractCSS.extract({
 					use: [{
-						loader: "css-loader?sourceMap" // translates CSS into CommonJS
+						loader: "css-loader?sourceMap!"
 					}, {
-						loader: "sass-loader" // compiles Sass to CSS
+						loader: "sass-loader?sourceMap"
 					}],
 					// use style-loader in development
-					fallback: "style-loader"
+					fallback: "style-loader" // activate source maps via loader query
 				})
 			},
-
-			//  {
-			//    test: /\.scss$/,
-			//    loader: isTest ? 'null' : ExtractTextPlugin.extract(
-			//         'style-loader', // activate source maps via loader query
-			//         'css-loader?sourceMap!' +
-			//         'sass-loader?sourceMap'
-			//     ),
-			// },
 			{
 				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				use: 'file-loader',
@@ -234,7 +233,7 @@ module.exports = function makeWebpackConfig() {
 			//inject: 'body'
 			//}),
 
-			extractSass
+			extractCSS
 
 			// Reference: https://github.com/webpack/extract-text-webpack-plugin
 			// Extract css files
