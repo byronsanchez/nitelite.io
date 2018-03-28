@@ -6,12 +6,14 @@
   "homepage": "https://niteLite.io",
   "private": true,
   "scripts": {
-    "build": "wintersmith build",
+    "build": "wintersmith build --clean",
+    "build-db": "grunt build-db",
+    "clean": "rm -rf ./build",
     "lint": "",
     "server": "wintersmith preview",
+    "start": "npm run build-db && npm run build && npm run server",
     "test": "karma start",
-    "test-watch": "karma start --auto-watch --no-single-run",
-    "start": "npm run server"
+    "test-watch": "karma start --auto-watch --no-single-run"
   },
   "repository": {
     "type": "git",
@@ -47,6 +49,7 @@
     "jade": "^1.0.2",
     "js-yaml": "^3.0.2",
     "json-loader": "^0.5.7",
+    "live-server": "^1.2.0",
     "mkdirp": "~0.5.0",
     "moment": "^2.5.1",
     "node-sass": "^4.8.3",
@@ -62,7 +65,7 @@
     "webpack-cli": "^2.0.13",
     "webpack-dev-server": "^3.1.1",
     "webpack-merge": "^4.1.2",
-    "wintersmith": "^2.0.10",
+    "wintersmith": "^2.4.1",
     "wintersmith-articles-helper": "0.1.x",
     "wintersmith-handleize-helper": "0.1.x",
     "wintersmith-html": "git://github.com/alnorth/wintersmith-html",

@@ -37,7 +37,7 @@ module.exports = function xpile(entry, outFileName, callback) {
 		// snowball of wintersmith json content
 		output: {
 			path: __dirname + '/../build/scripts',
-			filename: outFileName,
+			filename: outFileName
 		}
 		// module: {
 		//     loaders: [{
