@@ -38,7 +38,7 @@ else {
 console.log("Environment: " + environment);
 
 var extractCSS = new ExtractTextPlugin({
-	filename: "[name].css"
+	filename: "[name].bundle.css"
 	// Disabling style-loader as fallback for dev for now.
 	// Reason being that hot module reloading is moot with wintersmith since the site has to be statically re-generated
 	// anyways. That way, all new content gets a generated html page, and existing content might be updated, etc. So new
@@ -97,7 +97,10 @@ module.exports = function makeWebpackConfig() {
 
 		// Output path from the view of the page
 		// Uses webpack-dev-server in development
-		publicPath: isProd ? '/' : features.baseUrl,
+		//publicPath: isProd ? '/' : features.baseUrl,
+
+		// since dev server's url is changing, have webpack generate internal urls that are relative to whatever domain it might be
+		publicPath: isProd ? '/scripts/' : '/scripts/',
 
 		// Filename for entry points
 		// Only adds hash in build mode

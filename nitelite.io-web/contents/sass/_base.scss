@@ -15,7 +15,7 @@ body {
 	color: $body-text-color;
   line-height: 1.6;
   background-color: $body-background-color;
-  background-image: url(../../resources/img/bg-skulls.png);
+  background-image: url(../img/bg-skulls.png);
 }
 
 p {
@@ -183,7 +183,7 @@ table tr th, table tr td
 #hero-unit {
   position: relative;
   padding: 60px 20px;
-  background: url("../../resources/img/starscape.svg") repeat scroll 0 0 $hero-background-color;
+  background: url("../img/starscape.svg") repeat scroll 0 0 $hero-background-color;
   overflow: hidden;
   height: 184px;
 }
@@ -769,7 +769,7 @@ kbd {
 }
 
 .comments-body.odd i.l {
-  background: url("../../resources/img/comments-bubble-left-edge.png");
+  background: url("../img/comments-bubble-left-edge.png");
   height: 1.75rem;
   left: 4.375rem;
   overflow: hidden;
@@ -784,7 +784,7 @@ kbd {
 }
 
 .comments-body.even i.l {
-  background: url("../../resources/img/comments-bubble-right-edge.png");
+  background: url("../img/comments-bubble-right-edge.png");
   height: 1.75rem;
   right: 4.25rem;
   overflow: hidden;
@@ -895,7 +895,7 @@ kbd {
 }
 
 .search .search-button {
-  background: url("../../resources/img/search-icon.png") no-repeat scroll 50% 50% $hero-background-color;
+  background: url("../img/search-icon.png") no-repeat scroll 50% 50% $hero-background-color;
   border: 0 none;
 }
 

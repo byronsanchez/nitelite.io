@@ -25,7 +25,7 @@ module.exports = (grunt) ->
 
   # Project configuration.
   grunt.initConfig
-    
+
     # Store your Package file so you can reference its specific data whenever necessary
     pkg: grunt.file.readJSON("package.json")
     nl: config
@@ -55,7 +55,7 @@ module.exports = (grunt) ->
           dest: 'contents/css'
           ext: '.css'
         }]
-        # files: 
+        # files:
         #   'contents/css/main.css': 'sass/main.scss'
 
     # Coffeescript
@@ -69,9 +69,9 @@ module.exports = (grunt) ->
       # compile:
       # files:
       # 'contents/js/test.js': 'coffee/test.coffee', # 1:1 compile
-      # 'contents/js/test2.js': ['coffee/*.coffee'] # compile and concat into 
+      # 'contents/js/test2.js': ['coffee/*.coffee'] # compile and concat into
       # single file
-    
+
     # Concatenation
     concat:
       options:
@@ -108,20 +108,6 @@ module.exports = (grunt) ->
       postcompile:
         nonull: true,
         files: [
-          {
-            expand: true,
-            src: ['resources/img/*'],
-            dest: '<%= nl.destination %>/img',
-            flatten: true
-          },
-
-          {
-            expand: true,
-            src: ['resources/favicons/*'],
-            dest: '<%= nl.destination %>',
-            filter: 'isFile',
-            flatten: true
-          },
 
           {
             expand: true,
@@ -135,14 +121,6 @@ module.exports = (grunt) ->
             expand: true,
             src: ['assets/support/*'],
             dest: '<%= nl.destination %>/assets',
-            filter: 'isFile',
-            flatten: true
-          },
-
-          {
-            expand: true,
-            src: ['bower_components/jreject/images/*'],
-            dest: '<%= nl.destination %>/img',
             filter: 'isFile',
             flatten: true
           },
