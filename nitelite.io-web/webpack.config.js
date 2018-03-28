@@ -173,9 +173,11 @@ module.exports = function makeWebpackConfig() {
 					// 	loader: "postcss"
 					// }
 					// ,
+						{
+							loader: "resolve-url-loader"
+						},
 					{
-//						loader: "sass-loader?sourceMap"
-						loader: "sass-loader"
+						loader: "sass-loader?sourceMap"
 					}],
 					// use style-loader in development
 					fallback: "style-loader" // activate source maps via loader query
