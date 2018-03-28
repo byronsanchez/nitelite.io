@@ -39,6 +39,11 @@ console.log("Environment: " + environment);
 
 var extractCSS = new ExtractTextPlugin({
 	filename: "[name].css"
+	// Disabling style-loader as fallback for dev for now.
+	// Reason being that hot module reloading is moot with wintersmith since the site has to be statically re-generated
+	// anyways. That way, all new content gets a generated html page, and existing content might be updated, etc. So new
+	// html pages have to be reconstructed each time regardless, meaning we can't save on the performance hit for static
+	// sites.
 	//disable: environment === "development"
 });
 
@@ -154,9 +159,21 @@ module.exports = function makeWebpackConfig() {
 				test: /\.scss$/,
 				use: isTest? 'null' : extractCSS.extract({
 					use: [{
-						loader: "css-loader?sourceMap!"
-					}, {
-						loader: "sass-loader?sourceMap"
+						//loader: "css-loader?sourceMap!",
+						loader: "css-loader"
+						// options: {
+						// 	autoprefixer: false,
+						// 	zindex: false,
+						// 	sourceMap: true,
+						// },
+					},
+					// {
+					// 	loader: "postcss"
+					// }
+					// ,
+					{
+//						loader: "sass-loader?sourceMap"
+						loader: "sass-loader"
 					}],
 					// use style-loader in development
 					fallback: "style-loader" // activate source maps via loader query
