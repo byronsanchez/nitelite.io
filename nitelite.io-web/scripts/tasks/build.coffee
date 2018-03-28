@@ -36,11 +36,8 @@ module.exports = (grunt) ->
         mangle: false
       my_target:
         files:
-          'contents/js/html5shiv.min.js': ['bower_components/html5shiv/dist/html5shiv.js'],
-          'contents/js/modernizr.min.js': ['bower_components/modernizr/modernizr.js'],
           'contents/js/jquery.min.js': ['bower_components/jquery/jquery.min.js'],
           'contents/js/foundation.min.js': ['bower_components/foundation/js/foundation.min.js'],
-          'contents/js/fastclick.min.js': ['bower_components/fastclick/lib/fastclick.js']
 
     sass:
       options:

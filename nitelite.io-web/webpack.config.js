@@ -18,7 +18,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var pkg = require('./package.json');
 var path = require("path");
-var coffee = require("coffee-loader");
 
 var environment;
 var environmentConfig;
@@ -231,8 +230,6 @@ module.exports = function makeWebpackConfig() {
 		new webpack.ProvidePlugin({
 			//_s: 'underscore.string',
 			//_: 'underscore',
-			//Modernizr: 'modernizr-2.6.2.min.js',
-			//'window.Modernizr': 'modernizr-2.6.2.min.js',
 			$: "jquery",
 			jQuery: "jquery",
 			"window.jQuery": "jquery",
