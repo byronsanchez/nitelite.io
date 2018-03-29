@@ -132,8 +132,9 @@ html(class='no-js')
                 h3.side-label Skills
               ul.nl-label-list
                 for skill in skills
+                  - var formattedSkill = skill.replace(/-/g, ' ')
                   li.nl-label.skills-item-label
-                    a(href='/tag/#{ skill }/') #{ skill } &bull;
+                    a(href='/tag/#{ skill }/') #{ formattedSkill } &bull;
 
   footer.footer-bottom
     div.row

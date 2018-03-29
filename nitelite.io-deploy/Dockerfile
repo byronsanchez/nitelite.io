@@ -16,20 +16,25 @@ RUN mkdir /home/wintersmith/nitelite.io
 WORKDIR /home/wintersmith/packages
 
 # Tell node where it can find the dependencies since they're not installed in the usual location
+
+# can be used with USER to install global packages to a user directory
+#RUN echo "prefix = /home/wintersmith/packages" > ~/.npmrc
+# tell node where to resolve modules in require() statements
 ENV NODE_PATH /home/wintersmith/packages/node_modules
 ENV PATH /home/wintersmith/packages/node_modules/.bin:$PATH
 
 COPY ./nitelite.io-web/package.json /home/wintersmith/packages
+#RUN chown -R wintersmith:wintersmith /home/wintersmith/packages
 RUN npm install --prefix /home/wintersmith/packages
 
 COPY ./nitelite.io-web/ /home/wintersmith/nitelite.io
 
 # This probably won't matter since we're mount binding anyway, and I'm not using docker containers for deployment yet
-RUN chown -R wintersmith:wintersmith /home/wintersmith/nitelite.io
+#RUN chown -R wintersmith:wintersmith /home/wintersmith/nitelite.io
 
 WORKDIR /home/wintersmith/nitelite.io
 
-USER wintersmith
+#USER wintersmith
 
 CMD ["npm", "run", "start"]
 

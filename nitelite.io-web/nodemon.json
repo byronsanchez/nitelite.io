@@ -1,0 +1,12 @@
+{
+  "legacyWatch": true,
+  "verbose": true,
+  "ignore": [
+	"build/*",
+	"node_modules/*",
+	"contents/scripts/*"
+  ],
+  "ext": "php js json coffee jade html txt asc xml scss css md org png jpg jpeg gif svg woff woff2 ttf eot",
+  "execMap": {
+  }
+}

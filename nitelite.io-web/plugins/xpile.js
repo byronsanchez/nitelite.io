@@ -29,7 +29,18 @@ module.exports = function xpile(entry, outFileName, callback) {
 	var wintersmithWebpackConfig = {
 		// wintersmith plugin assumes we're in contents, webpack does not
 		//
-		// Basically, locate the entrypoint found by wintersmith (app.coffee) and resolve it relative to the root path
+		// aka the flow:
+		//
+		// - wintersmith gathers contents/ into a json ball
+		// - wintersmith matches contenttypes (filetypes) to plugins as handlers
+		// - wintersmith executes the plugin handlers on the filetypes
+		// - as a result, the contents/coffee/main.coffee entrypoint gets associated with this plugin
+		// - we then call out to webpack /during/ this whole compilation process
+		// - we generate webpack files
+		//
+		// We could almost certainly run webpack outside of this whole process (using manual embeds of generated webpack
+		// bundles); but I'm sticking with this because I'll probably want to play around with this in the future, maybe
+		// see if I can register a ContentTree, have wintersmith preview rebuild maybe, etc.
 		entry: path.resolve("contents", entry.relative),
 		// output the file to a folder in the build path
 		// NOTE: If I want to use a bundled hash, use HTMLWebpackPlugin and

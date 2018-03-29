@@ -56,7 +56,9 @@ var features = allEnvironmentFeatures[environment].config;
 
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch';
-var isProd = ENV === 'build';
+// Gets set when running npm run build command, so disabling for now
+//var isProd = ENV === 'build';
+var isProd = false;
 
 console.log("ENV: " + ENV);
 
@@ -189,7 +191,15 @@ module.exports = function makeWebpackConfig() {
 					}, {
 						loader: "sass-loader?sourceMap",
 						options: {
-							sourceMap: true
+							sourceMap: true,
+							includePaths: [
+							// When installed locally
+							path.resolve(__dirname, 'node_modules/foundation-sites/scss/'),
+							path.resolve(__dirname, 'node_modules/foundation-icons'),
+							// When installed using Dockerfile
+							path.resolve(__dirname, '../packages/node_modules/foundation-sites/scss/'),
+							path.resolve(__dirname, '../packages/node_modules/foundation-icons/')
+							]
 						}
 					}],
 					// use style-loader in development
@@ -309,7 +319,17 @@ module.exports = function makeWebpackConfig() {
 		extensions: ['*', '.js'],
 		alias: {
 			spin: 'spin.js'
-		}
+		},
+		modules: [
+			path.resolve(__dirname, '../packages/node_modules')
+		]
+	};
+
+	config.resolveLoader = {
+		modules: [
+			// 'node_modules',
+			path.resolve(__dirname, '../packages/node_modules')
+		]
 	};
 
 	return config;

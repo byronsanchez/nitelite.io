@@ -4,9 +4,12 @@
 @import "variables";
 @import "settings";
 
-@import "../../node_modules/foundation-sites/scss/normalize";
-@import "../../node_modules/foundation-icons/foundation-icons";
-@import "../../node_modules/foundation-sites/scss/foundation";
+// imported from: node_modules/foundation-sites/scss/
+@import "normalize";
+// imported from: node_modules/foundation-icons/
+@import "foundation-icons.scss";
+// imported from: node_modules/foundation-sites/scss/
+@import "foundation";
 
 // Custom app overrides
 

@@ -67,11 +67,11 @@
       "3 stars",
       "2 stars",
       "1 star",
-      "creepypasta",
-      "health",
-      "mastery",
-      "money",
-      "music"
+      "art",
+      "edm",
+      "music-production",
+      "piano",
+      "singing"
     ]
   },
   "webpack": {

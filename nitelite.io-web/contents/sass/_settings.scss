@@ -3,7 +3,9 @@
 //
 
 // Uncomment to use rem-calc() in your settings
-@import "../../node_modules/foundation-sites/scss/foundation/functions";
+
+// imported from: node_modules/foundation-sites/scss/
+@import "foundation/functions";
 
 // $experimental: true;
 

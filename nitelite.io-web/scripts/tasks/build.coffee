@@ -8,8 +8,6 @@ sh = require 'child_process'
 colors = require 'colors'
 
 module.exports = (grunt) ->
-	grunt.loadNpmTasks "grunt-contrib-watch"
-	grunt.loadNpmTasks "grunt-wintersmith"
 
 	#####################
 	# LOAD PACKAGED TASKS
@@ -21,12 +19,6 @@ module.exports = (grunt) ->
 # Store your Package file so you can reference its specific data whenever necessary
 		pkg: grunt.file.readJSON("package.json")
 		nl: config
-
-		wintersmith:
-			local: {},
-			preview:
-				options:
-					action: "preview"
 
 # Concatenation
 		watch:
@@ -40,4 +32,3 @@ module.exports = (grunt) ->
 	)
 
 	grunt.registerTask('default', 'build')
-
