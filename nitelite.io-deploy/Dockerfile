@@ -2,6 +2,9 @@
 FROM byronsanchez/wintersmith-docker
 LABEL maintainer "Byron Sanchez <byron@hackbytes.io>"
 
+RUN apk --no-cache add \
+  sqlite
+
 RUN npm install -g webpack \
   live-server \
   coffeescript \
