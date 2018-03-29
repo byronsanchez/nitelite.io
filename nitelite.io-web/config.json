@@ -1,5 +1,5 @@
 {
-  "port": 8081,
+  "port": 8080,
   "baseUrl": "/",
   "editor": "vim",
   "post_ext": "html",

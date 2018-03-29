@@ -13,7 +13,7 @@
     "lint": "",
     "preview": "wintersmith preview",
     "server": "live-server ./build",
-    "start": "npm run clean; npm run build; live-server --port=8081 ./build",
+    "start": "npm run clean; npm run build; wintersmith-preview",
     "test": "karma start",
     "test-watch": "karma start --auto-watch --no-single-run",
     "watch": "grunt watch"
