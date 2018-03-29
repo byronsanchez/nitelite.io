@@ -36,7 +36,7 @@ WORKDIR /home/wintersmith/nitelite.io
 
 #USER wintersmith
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "start-watch"]
 
 # TODO: PHP (or replace it so I don't have to maintain it)
 # - PHP7
