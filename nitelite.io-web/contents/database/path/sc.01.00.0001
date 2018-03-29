@@ -1,0 +1,3 @@
+-- Baseline schema
+
+CREATE TABLE path (_id INTEGER PRIMARY KEY, key TEXT NOT NULL UNIQUE, value TEXT);

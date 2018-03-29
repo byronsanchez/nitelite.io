@@ -1,0 +1,8 @@
+-- Initial population of all tables.
+
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+INSERT INTO path VALUES(1,'contact-me','contact');
+INSERT INTO path VALUES(2,'cv','curriculum-vitae');
+INSERT INTO path VALUES(3,'projects','curriculum-vitae');
+COMMIT;

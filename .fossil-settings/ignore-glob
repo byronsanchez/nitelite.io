@@ -139,6 +139,7 @@ npm-debug.log
 *contents/js/
 *contents/fonts/
 *contents/scripts/
+*contents/database/comments/
 
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.

@@ -62,14 +62,14 @@
     "perPage": 5,
     "template": "layouts/tags.jade",
     "filter": [
-      "5 stars",
+		"5 stars",
       "4 stars",
       "3 stars",
       "2 stars",
       "1 star",
       "art",
       "edm",
-      "music-production",
+      "music",
       "piano",
       "singing"
     ]

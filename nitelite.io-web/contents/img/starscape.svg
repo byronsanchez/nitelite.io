@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1440px"
+	 height="240px" viewBox="0 0 1440 240" style="enable-background:new 0 0 1440 240;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{fill:#C5EDFF;fill-opacity:0.1;}
+	.st1{fill:#C5EDFF;fill-opacity:0.6;}
+	.st2{opacity:0.6;}
+	.st3{opacity:0.8;}
+	.st4{fill:#FFFFFF;}
+	.st5{display:inline;}
+	.st6{opacity:0.1;fill:#C5EDFF;}
+	.st7{display:inline;fill:#0A3E66;}
+	.st8{fill:#094056;}
+	.st9{display:none;}
+	.st10{opacity:0.6;fill:#C5EDFF;}
+	.st11{fill:#339AD3;fill-opacity:0.6;}
+]]>
+</style>
+<symbol  id="star-small" viewBox="-0.528 -0.528 2.732 2.732">
+	<path class="st11" d="M2.204,0.838c0-0.755-0.611-1.367-1.366-1.367s-1.366,0.611-1.366,1.367c0,0.754,0.611,1.366,1.366,1.366
+		S2.204,1.593,2.204,0.838z"/>
+</symbol>
+<symbol  id="star-symbol-big" viewBox="-7.917 -7.916 15.834 15.833">
+	<path class="st6" d="M5.657,0c0-3.124-2.533-5.656-5.657-5.656c-3.125,0-5.657,2.532-5.657,5.656S-3.125,5.657,0,5.657
+		C3.124,5.657,5.657,3.124,5.657,0z"/>
+	<path class="st6" d="M7.917,0c0-4.372-3.545-7.916-7.917-7.916c-4.373,0-7.917,3.544-7.917,7.916c0,4.373,3.544,7.917,7.917,7.917
+		C4.372,7.917,7.917,4.373,7.917,0z"/>
+	<path class="st10" d="M3.255-0.001C3.255-1.8,1.796-3.255,0-3.255c-1.798,0-3.255,1.455-3.255,3.254
+		c0,1.798,1.457,3.255,3.255,3.255C1.796,3.254,3.255,1.797,3.255-0.001z"/>
+</symbol>
+<symbol  id="star-symbol-medium" viewBox="-5.359 -5.151 9.177 9.178">
+	<path class="st0" d="M3.818-0.562c0-2.536-2.054-4.589-4.588-4.589s-4.588,2.053-4.588,4.589c0,2.533,2.054,4.589,4.588,4.589
+		S3.818,1.971,3.818-0.562z"/>
+	<path class="st1" d="M1.24-0.563c0-1.11-0.9-2.011-2.011-2.011s-2.011,0.9-2.011,2.011c0,1.111,0.9,2.012,2.011,2.012
+		S1.24,0.548,1.24-0.563z"/>
+</symbol>
+<g id="bg" class="st9">
+	<rect class="st7" width="1440" height="240"/>
+</g>
+<g id="stars-big" class="st3">
+	
+		<use xlink:href="#star-symbol-big"  width="15.834" height="15.833" x="-7.917" y="-7.916" transform="matrix(1 0 0 -1 131.7339 73.2661)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-big"  width="15.834" height="15.833" id="XMLID_3_" x="-7.917" y="-7.916" transform="matrix(1 0 0 -1 305.5576 225.2891)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-big"  width="15.834" height="15.833" x="-7.917" y="-7.916" transform="matrix(1 0 0 -1 1000.8516 181.1143)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-big"  width="15.834" height="15.833" x="-7.917" y="-7.916" transform="matrix(1 0 0 -1 892.2119 87.646)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-big"  width="15.834" height="15.833" x="-7.917" y="-7.916" transform="matrix(1 0 0 -1 1348.499 127.1904)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-big"  width="15.834" height="15.833" id="XMLID_2_" x="-7.917" y="-7.916" transform="matrix(1 0 0 -1 457.6533 148.7598)" style="overflow:visible;"/>
+</g>
+<g id="stars-medium" class="st2">
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 197.6885 15.1836)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 89.0488 61.918)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 45.5928 220.0957)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 849.5273 76.2979)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 284.6001 216.501)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 393.2397 18.7788)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 480.1519 79.8931)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 436.6958 187.7412)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 762.6152 205.7158)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 632.2471 209.3115)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(1 0 0 -1 588.7915 29.5635)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 1261.916 138.8711)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 957.7246 34.6172)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 870.8125 99.3262)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 1088.0918 214.3643)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 1131.5479 95.7314)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 827.3564 124.4902)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.1544 0.988 0.988 0.1544 1305.4805 120.8481)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.1544 0.988 0.988 0.1544 1435.8477 185.5576)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-symbol-medium"  width="9.177" height="9.178" x="-5.359" y="-5.151" transform="matrix(-0.2755 0.9613 0.9613 0.2755 1218.46 56.1865)" style="overflow:visible;"/>
+</g>
+<g id="stars-small">
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 500.271 174.7617)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 152.624 92.0781)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 674.0947 70.5083)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 217.8081 45.3438)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 608.9111 228.6865)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 369.9033 199.9268)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(1 0 0 -1 413.3594 48.939)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(0.8906 -0.4548 -0.4548 -0.8906 261.7368 203.8115)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" id="XMLID_1_" x="-0.528" y="-0.528" transform="matrix(0.8906 -0.4548 -0.4548 -0.8906 652.8398 117.5322)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(0.8906 -0.4548 -0.4548 -0.8906 718.0239 27.6587)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(0.8782 -0.4485 -0.4548 -0.8906 696.3062 178.6416)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(0.8906 -0.4548 -0.4548 -0.8906 240.0088 164.2666)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(0.8906 -0.4548 -0.4548 -0.8906 348.6484 106.7476)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(0.8906 -0.4548 -0.4548 -0.8906 522.4722 196.6211)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6733 0.7393 0.7393 0.6733 740.0615 129.6006)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 783.4561 111.6304)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" id="XMLID_4_" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 935.5518 165.5547)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 566.1768 36.1367)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1174.5586 3.7817)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 805.1836 133.2002)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1044.1914 108.0356)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 913.8242 154.7695)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1109.375 169.1494)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 979.0078 82.8711)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1196.2871 234.7041)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 175.0742 143.9854)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 543.9253 57.8882)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.8999 0.436 0.436 0.8999 1022.9688 158.4248)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 65.9102 39.9136)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" id="XMLID_6_" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 109.3662 21.9385)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 3.6104 229.9482)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 1065.3965 7.5586)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 326.6455 11.1538)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.2134 0.977 0.977 0.2134 22.4546 140.5723)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1152.8311 100.8457)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1239.7432 151.1748)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1283.1992 50.5161)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1391.8389 64.896)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1326.9043 3.437)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1370.1104 190.7197)" style="overflow:visible;"/>
+	
+		<use xlink:href="#star-small"  width="2.732" height="2.732" x="-0.528" y="-0.528" transform="matrix(-0.6344 0.773 0.773 0.6344 1413.5664 223.0742)" style="overflow:visible;"/>
+</g>
+<g id="moon" class="st9">
+	<g class="st5">
+		<path class="st4" d="M786.75,59.779c0-12.706,3.96-24.48,10.698-34.181c-13.255,11.006-21.698,27.606-21.698,46.181
+			c0,33.138,26.863,60,60,60c20.432,0,38.467-10.221,49.302-25.82c-10.392,8.628-23.739,13.819-38.302,13.819
+			C813.613,119.779,786.75,92.916,786.75,59.779z"/>
+		<path class="st8" d="M835.75,11.779c-14.562,0-27.91,5.191-38.302,13.819c-6.738,9.7-10.698,21.475-10.698,34.181
+			c0,33.137,26.863,60,60,60c14.562,0,27.91-5.191,38.302-13.819c6.738-9.7,10.698-21.475,10.698-34.181
+			C895.75,38.642,868.887,11.779,835.75,11.779z"/>
+	</g>
+</g>
+</svg>
