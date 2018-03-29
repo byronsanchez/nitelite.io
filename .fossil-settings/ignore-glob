@@ -144,7 +144,6 @@ npm-debug.log
 # Ignore compiled/derivative files that can be rebuilt from already
 # committed files.
 *.db*
-*.db*
 
 assets/support/node_modules/
 
