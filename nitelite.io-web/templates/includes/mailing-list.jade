@@ -1,0 +1,25 @@
+
+div.nl-label.mailing-list-label
+  h3.side-label Get Ideas On Music And Art
+
+// Begin MailChimp Signup Form
+#mc_embed_signup
+  form#mc-embedded-subscribe-form.validate(action='https://nitelite.us17.list-manage.com/subscribe/post?u=d2f3cdf720294e12cf17f8e3b&id=c47260d6b8', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+    div.mailing-list-description
+      |   Subscribe to the niteLite newsletter to get ideas on the dynamics and
+      |   meaning behind music, creativity, and art.
+    #mc_embed_signup_scroll
+      .mc-field-group
+        //label(for='mce-EMAIL') Email Address 
+        //input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
+        input#mce-EMAIL.email(type='email', value='', name='EMAIL', placeholder='email address', required='')
+      #mce-responses.clear
+        #mce-error-response.response(style='display:none')
+        #mce-success-response.response(style='display:none')
+      // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+      div(style='position: absolute; left: -5000px;', aria-hidden='true')
+        input(type='text', name='b_d2f3cdf720294e12cf17f8e3b_c47260d6b8', tabindex='-1', value='')
+      .clear
+        input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+// End mc_embed_signup
+
