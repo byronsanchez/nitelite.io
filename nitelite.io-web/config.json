@@ -81,9 +81,7 @@
   "ignore": [
     "README.md",
     "README.org",
-    "Gruntfile",
-    "coffee",
-    "sass"
+    "Gruntfile"
   ]
 }
 
