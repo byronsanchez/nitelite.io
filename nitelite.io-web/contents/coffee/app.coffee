@@ -1,0 +1,2 @@
+
+require ('./bs-comments.coffee')

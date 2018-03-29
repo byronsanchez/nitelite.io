@@ -25,14 +25,9 @@ config = root.env.config
 # Grunt Tasks Configuration
 ###########################
 
-deployment = config.deployment
-
 config['source'] = root.env['workDir']
 config['destination'] = config['output']
-deployment['connection'] = "#{deployment['remote_user']}@#{deployment['server']}"
-deployment['remote_current_path'] = path.join(deployment['remote_destination'], "current/build")
-deployment['remote_assets'] = path.join(deployment['remote_current_path'], "assets")
-deployment['remote_database_output'] = "/var/lib/nitelite/webserver/nitelite.io/database"
+
 config['config_file'] = config_file
 config['layouts'] = path.join(config['source'], "_layouts")
 config['posts'] = path.join(config['source'], "contents/notebooks")
@@ -43,12 +38,8 @@ config['support'] = path.join(config['scripts'], "support")
 config['vendor'] = path.join(config['source'], "vendor")
 config['assets'] = path.join(config['source'], "assets")
 config['tests'] = path.join(config['source'], "tests")
-config['database'] = path.join(config['assets'], "database")
+config['database'] = path.join(config['source'], "contents/database")
 # config['database_scripts'] = {"comments": "comments.db", "path": "path.db"}
 config['database_scripts'] = {"path": "path.db"}
 config['database_output'] = path.join(config['database'], "bin")
-# Files to remove from compiled source.
-config['no_deploy'] = []
-
-
 

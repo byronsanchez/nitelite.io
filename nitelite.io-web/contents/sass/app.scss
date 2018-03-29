@@ -3,12 +3,8 @@
 
 @import "variables";
 @import "settings";
-@import "../bower_components/foundation/scss/normalize";
-@import "../bower_components/foundation-icons/foundation_icons_general/sass/general_foundicons";
-@import "../bower_components/foundation/scss/foundation";
-@import "foundation_overrides";
-@import "highlight";
 
+@import "highlight";
 @import "base";
 
 // Media query using Foundation Framework

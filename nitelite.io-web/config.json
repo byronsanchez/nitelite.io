@@ -1,13 +1,5 @@
 {
-  "deployment": {
-    "remote_user": "deployer",
-    "remote_port": "1224",
-    "remote_destination": "/srv/www/nitelite.io",
-    "repo": "https://git.nitelite.io/byronsanchez/nitelite.io/",
-    "repo_branch": "master",
-    "remote_path_env": "$PATH:/usr/local/bin:$HOME/.nodejs/bin",
-    "server": "production.nitelite.io"
-  },
+  "port": 8081,
   "baseUrl": "/",
   "editor": "vim",
   "post_ext": "html",
@@ -40,7 +32,8 @@
     "./plugins/wintersmith-handleize-helper",
     "./plugins/wintersmith-tag-pages.coffee",
     "./plugins/wintersmith-robotskirt.coffee",
-    "./plugins/related_posts.coffee"
+    "./plugins/related_posts.coffee",
+    "./plugins/wintersmith-webpack.coffee"
   ],
   "require": {
     "moment": "moment",
@@ -81,16 +74,14 @@
       "music"
     ]
   },
+  "webpack": {
+	"output": "main.bundle.js"
+  },
   "pygments": true,
   "ignore": [
     "README.md",
     "README.org",
-    "Gruntfile",
-    "resources",
-    "vendor",
-    "scripts",
-    "bin",
-    "database"
+    "Gruntfile"
   ]
 }
 

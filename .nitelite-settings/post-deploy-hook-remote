@@ -1,0 +1,42 @@
+#!/bin/sh
+
+DATABASE_DIR="/var/lib/nitelite/webserver/nitelite.io/database"
+ROOT_WEB_DIR="/srv/www/nitelite.io"
+WEB_PKG_DIR="${ROOT_WEB_DIR}/htdocs"
+# NPM_DIR="${WEB_PKG_DIR}/assets"
+
+dest=${DATABASE_DIR}
+
+echo "Installing path database..."
+
+mkdir -p ${dest}
+cp -f ${WEB_PKG_DIR}/database/bin/path.db ${dest}/path.db
+
+rm -rf ${WEB_PKG_DIR}/database
+rm -rf ${WEB_PKG_DIR}/sass
+rm -rf ${WEB_PKG_DIR}/coffee
+
+#echo "Installing node modules..."
+
+# cd ${NPM_DIR}
+# rm -rf "node_modules"
+# npm install || die "npm module installation failed"
+# npm rebuild || die "npm module installation failed"
+
+# fix perms
+
+chown -R deployer:www-data "${DATABASE_DIR}"
+find ${DATABASE_DIR} -type d -exec chmod 2770 '{}' \;
+find ${DATABASE_DIR} -type f -exec chmod 660 '{}' \;
+
+chown -R deployer:www-data "${ROOT_WEB_DIR}"
+find ${WEB_PKG_DIR} -type d -exec chmod 2750 '{}' \;
+find ${WEB_PKG_DIR} -type f -exec chmod 640 '{}' \;
+
+# fix perms for node_modules dirs
+# sudo chown -R www-data:www-data "${NPM_DIR}/node_modules"
+
+# use these on upload directories only
+# chmod 2770 ${UPLOAD_DIR};
+# find ${UPLOAD_DIR} -type d -exec chmod 2770 '{}' \;
+# find ${UPLOAD_DIR} -type f -exec chmod 640 '{}' \;

@@ -1,0 +1,11 @@
+// This is the entry point to the sass files
+
+// The reason we're using this main file instead of just having the javascript main file call out to lib and app
+// itself is because in doing that, lib variables and imports get isolated from app variables and imports
+//
+// By using this main.scss file, we can import /this/ file in the main.coffee file, and have any variables, settings,
+// and mixins imported in lib.scss be accessible to app.scss without code duplication.
+
+@import "lib";
+@import "app";
+@import "print";

@@ -9,7 +9,7 @@ head
     meta(name='application-name' content='#{ locals.application }')
     meta(name='msapplication-TileColor' content='#0A3E66')
     meta(name='msapplication-TileImage' content='/touch-icon-ipad-retina-precomposed.png')
-  
+
     title
       block title
         if page
@@ -18,21 +18,8 @@ head
         else
           | #{ locals.title }
 
-    | <!-- For legacy support of HTML5 elements -->
-    | <!--[if lt IE 9]>
-    |   <script src="/js/html5shiv.min.js"></script>
-    | <![endif]-->
-
-    script(src='/js/modernizr.min.js')
-
     | <!-- Stylesheets -->
-    link(rel='stylesheet', href='/css/main.css', type='text/css')
-    | <!--[if lt IE 10]>
-    |   <link href="/css/ie9.css" media="screen, projection" 
-    |   rel="stylesheet" type="text/css" />
-    | <![endif]-->
-
-    link(rel='stylesheet', href='/css/print.css', media='print', type='text/css')
+    link(rel='stylesheet', href='/scripts/main.bundle.css', type='text/css')
 
     link(rel='alternate', href='https://feeds.nitelite.io/nitelite/', type='application/rss+xml', title=description)
 
@@ -45,11 +32,6 @@ head
     // link(rel='stylesheet', type='text/css', href='')
     // Text
     link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic')
-
-    // Mailing List
-    //link(href='//cdn-images.mailchimp.com/embedcode/classic-10_7.css', rel='stylesheet', type='text/css')
-    // style(type='text/css').
-    //   #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
 
     // Favicons
     link(rel='shortcut icon', href='/favicon.ico')

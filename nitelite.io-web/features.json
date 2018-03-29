@@ -1,0 +1,27 @@
+{
+    "development": {
+        "config": {
+            "baseUrl": "http://localhost:8080/",
+            "features": {
+                "enableComments": true
+            }
+        }
+    },
+    "staging": {
+        "config": {
+            "baseUrl": "https://staging.nitelite.io/",
+            "features": {
+                "enableComments": true
+            }
+        }
+    },
+    "production": {
+        "config": {
+            "baseUrl": "https://nitelite.io/",
+            "features": {
+                "enableComments": true
+            }
+       }
+    }
+}
+
