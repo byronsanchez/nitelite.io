@@ -3,6 +3,7 @@ head
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='author' content='#{ locals.author }')
+    meta(name='description' content='#{ locals.description }')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
 
     // Tile image for Windows
@@ -14,9 +15,9 @@ head
       block title
         if page
           if page.title
-            | #{ page.title } | #{ locals.title }
+            | #{ page.title } | #{ locals.author } - #{ locals.title }
         else
-          | #{ locals.title }
+          | #{ locals.author } - #{ locals.title }
 
     | <!-- Stylesheets -->
     link(rel='stylesheet', href='/scripts/main.bundle.css', type='text/css')
@@ -28,8 +29,6 @@ head
     link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400')
     // Headings
     link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Dosis:400,700')
-    // TODO: Title
-    // link(rel='stylesheet', type='text/css', href='')
     // Text
     link(rel='stylesheet', type='text/css', href='https://fonts.googleapis.com/css?family=Alegreya:400,400italic,700,700italic')
 
