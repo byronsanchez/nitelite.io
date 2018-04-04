@@ -1,0 +1,7 @@
+
+# Dependency directories
+**/node_modules/
+# docker doesn't need design artifacts
+**/nitelite.io-design/
+# same for docs
+**/nitelite.io-docs/
