@@ -7,81 +7,98 @@
   "comments_author": "anonymous",
   "filenameTemplate": "/:file/index.html",
   "locals": {
-    "application": "nitelite.io",
-    "url": "https://nitelite.io",
-    "base_url": "nitelite.io",
-    "title": "nitelite.io",
-    "subtitle": "Wintersmith blog about music, art, and my creative projects.",
-    "author": "Byron Sanchez",
-    "description": "Wintersmith blog about music, art, and my creative projects.",
-    "comments_enabled": true,
-    "ratings_enabled": true,
-    "skills_enabled": true,
-    "keys_enabled": true,
-    "related_entries_limit": 5,
-    "date_format_post": "dddd, MMMM Do, YYYY",
-    "date_format_comment": "MMMM Do, YYYY h:mm A",
-    "email": "byron@nitelite.io",
-    "gravatar_url": "http://www.gravatar.com/avatar",
-    "gravatar_size": 64,
-    "gravatar_default": "identicon"
+	"application": "nitelite.io",
+	"url": "https://nitelite.io",
+	"base_url": "nitelite.io",
+	"title": "nitelite.io",
+	"subtitle": "Wintersmith blog about music, art, and my creative projects.",
+	"author": "Byron Sanchez",
+	"description": "Wintersmith blog about music, art, and my creative projects.",
+	"comments_enabled": true,
+	"ratings_enabled": true,
+	"skills_enabled": true,
+	"keys_enabled": true,
+	"related_entries_limit": 5,
+	"date_format_post": "dddd, MMMM Do, YYYY",
+	"date_format_comment": "MMMM Do, YYYY h:mm A",
+	"email": "byron@nitelite.io",
+	"gravatar_url": "http://www.gravatar.com/avatar",
+	"gravatar_size": 64,
+	"gravatar_default": "identicon"
   },
   "plugins": [
-    "./plugins/paginator.coffee",
-    "./plugins/wintersmith-articles-helper.coffee",
-    "./plugins/wintersmith-handleize-helper",
-    "./plugins/wintersmith-tag-pages.coffee",
-    "./plugins/wintersmith-robotskirt.coffee",
-    "./plugins/related_posts.coffee",
-    "./plugins/wintersmith-webpack.coffee"
+	"./plugins/paginator.coffee",
+	"./plugins/wintersmith-articles-helper.coffee",
+	"./plugins/wintersmith-handleize-helper",
+	"./plugins/wintersmith-tag-pages.coffee",
+	"./plugins/wintersmith-robotskirt.coffee",
+	"./plugins/related_posts.coffee",
+	"./plugins/wintersmith-webpack.coffee"
   ],
   "require": {
-    "moment": "moment",
-    "_": "underscore",
-    "typogr": "typogr"
+	"moment": "moment",
+	"_": "underscore",
+	"typogr": "typogr"
   },
   "jade": {
-    "pretty": true
+	"pretty": true
   },
   "most_popular_articles": {
-    "limit": 5
+	"limit": 5
   },
   "paginator": {
-    "isEnabled": 1,
-    "template": "layouts/index.jade",
-    "perPage": 5
+	"isEnabled": 1,
+	"template": "layouts/index.jade",
+	"perPage": 5
   },
   "articlesHelper": {
-    "articles": "notebooks"
+	"articles": "notebooks"
+  },
+  "portfolioHelper": {
+	"portfolio": "portfolio"
   },
   "robotskirt": {
-    "extensions": ["ext_fenced_code", "ext_no_intra_emphasis", "ext_autolink", "ext_strikethrough", "ext_lax_spacing", "ext_superscript", "ext_tables"],
-    "smart": true
+	"extensions": [
+	  "ext_fenced_code",
+	  "ext_no_intra_emphasis",
+	  "ext_autolink",
+	  "ext_strikethrough",
+	  "ext_lax_spacing",
+	  "ext_superscript",
+	  "ext_tables"
+	],
+	"smart": true
   },
   "tagPages": {
-    "perPage": 5,
-    "template": "layouts/tags.jade",
-    "filter": [
-		"5 stars",
-      "4 stars",
-      "3 stars",
-      "2 stars",
-      "1 star",
-      "art",
-      "edm",
-      "music",
-      "piano",
-      "singing"
-    ]
+	"perPage": 5,
+	"template": "layouts/tags.jade",
+	"filter": [
+	  "5 stars",
+	  "4 stars",
+	  "3 stars",
+	  "2 stars",
+	  "1 star",
+	  "art",
+	  "edm",
+	  "music",
+	  "piano",
+	  "singing"
+	]
   },
   "webpack": {
 	"output": "main.bundle.js"
   },
+  "portfolio": {
+	"tags": [
+	  "piano",
+	  "edm"
+	]
+  },
   "pygments": true,
   "ignore": [
-    "README.md",
-    "README.org",
-    "Gruntfile"
+	"README.md",
+	"README.org",
+	"Gruntfile"
   ]
 }
 
